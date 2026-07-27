@@ -161,6 +161,28 @@ Golden Idea (Idea Evaluator)  →  Roadshow Magician (Pitch Builder)  →  Qinsh
 
 ---
 
+## 🎩 自举案例：魔术师的路演
+
+这份README同目录下的路演材料，就是**用黑客松路演魔术师给它自己生成的**：
+
+- [📊 HTML路演页 v2](路演材料/黑客松路演魔术师_路演_v2.html) — 竞赛Demo现场演示
+- [📝 演讲稿 v2](路演材料/黑客松路演魔术师_演讲稿_v2.md) — 15分钟完整讲稿
+- [❓ 预测问答](路演材料/黑客松路演魔术师_问答.md) — 评委互动准备
+
+![路演预览](路演材料/preview_slide_1.png)
+
+> **同一个项目，同一套代码，不同的表达。** 这不是魔法，是工程化。
+
+---
+
+## 🤝 参与贡献 | Contributing
+
+欢迎提 Issue 和 PR！无论是 Bug 报告、功能建议还是文档改进，都欢迎。
+
+Issues and PRs are welcome — bug reports, feature requests, and doc improvements are all appreciated.
+
+---
+
 ## 📄 许可证 | License
 
 [MIT License](LICENSE) — Open source, community-friendly, build on top of it freely.
