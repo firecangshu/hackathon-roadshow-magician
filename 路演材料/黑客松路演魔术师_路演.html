@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>黑客松路演魔术师 · 竞赛Demo</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #1A1A2E;
+            color: #E0E0E0;
+            font-family: "Sarasa Gothic SC", "Microsoft YaHei", sans-serif;
+            overflow: hidden;
+        }
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 80px;
+            position: relative;
+        }
+        .slide.active { display: flex; }
+        .slide h1 {
+            font-size: 56px;
+            background: linear-gradient(90deg, #00D4FF, #9B59B6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .slide h2 {
+            font-size: 42px;
+            color: #00D4FF;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .slide p, .slide li {
+            font-size: 28px;
+            line-height: 1.8;
+            color: #C0C0D0;
+            max-width: 1000px;
+            text-align: center;
+        }
+        .slide ul {
+            list-style: none;
+            text-align: left;
+        }
+        .slide li {
+            margin: 16px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        .slide li::before {
+            content: "▸";
+            color: #00D4FF;
+            position: absolute;
+            left: 0;
+        }
+        .highlight {
+            color: #00D4FF;
+            font-weight: 700;
+        }
+        .big-number {
+            font-size: 72px;
+            font-weight: 800;
+            color: #00D4FF;
+        }
+        .stats {
+            display: flex;
+            gap: 60px;
+            margin-top: 40px;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat-label {
+            font-size: 18px;
+            color: #A0A0C0;
+            margin-top: 10px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .card {
+            background: rgba(0, 212, 255, 0.08);
+            border: 1px solid rgba(0, 212, 255, 0.25);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        .card h3 {
+            color: #00D4FF;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .card p {
+            font-size: 14px;
+            color: #A0A0C0;
+        }
+        .nav {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            display: flex;
+            gap: 16px;
+            z-index: 100;
+        }
+        .nav button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 1px solid rgba(0, 212, 255, 0.4);
+            background: rgba(0, 212, 255, 0.1);
+            color: #00D4FF;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .nav button:hover {
+            background: rgba(0, 212, 255, 0.25);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+        }
+        .dots {
+            position: fixed;
+            top: 40px;
+            right: 40px;
+            display: flex;
+            gap: 10px;
+            z-index: 100;
+        }
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            cursor: pointer;
+        }
+        .dot.active { background: #00D4FF; }
+    </style>
+</head>
+<body>
+    <div class="dots" id="dots"></div>
+
+    <div class="slide active">
+        <h1>🎩 黑客松路演魔术师</h1>
+        <p style="font-size:32px;">黑客松专属路演全链助手</p>
+        <p style="margin-top:30px;">把任意成果源代码，一键变成竞赛级路演材料</p>
+        <div class="stats" style="margin-top:60px;">
+            <div class="stat"><div class="big-number">7</div><div class="stat-label">步工作流</div></div>
+            <div class="stat"><div class="big-number">8</div><div class="stat-label">类路演</div></div>
+            <div class="stat"><div class="big-number">19</div><div class="stat-label">种产物</div></div>
+            <div class="stat"><div class="big-number">6</div><div class="stat-label">维版本</div></div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <h2>开场：一个真实的痛点</h2>
+        <p>参加黑客松的朋友们，大多经历过这一幕——</p>
+        <p style="margin-top:30px;">产品DEMO好不容易跑通了，<br>却发现<strong class="highlight">路演材料还没开始做</strong>。</p>
+        <p style="margin-top:30px;">熬夜做PPT、写讲稿、想问答，<br>本该用来打磨产品的时间，全耗在了排版和措辞上。</p>
+    </div>
+
+    <div class="slide">
+        <h2>缘起：为什么做这个项目</h2>
+        <p>我见过太多团队：</p>
+        <ul style="margin-top:20px;">
+            <li>代码写得很扎实，但<strong class="highlight">讲不清楚价值</strong></li>
+            <li>想法很有亮点，但<strong class="highlight">路演时逻辑混乱</strong></li>
+            <li>DEMO做出80分，但材料只呈现50分</li>
+        </ul>
+        <p style="margin-top:30px;">于是我想：<strong class="highlight">能不能做一个工具，帮大家把路演材料这件事系统化、自动化？</strong></p>
+    </div>
+
+    <div class="slide">
+        <h2>问题：路演材料准备的三重困境</h2>
+        <ul>
+            <li><strong class="highlight">不会写</strong>：没受过演讲训练，不知道怎么组织内容</li>
+            <li><strong class="highlight">没时间</strong>：DEMO调试占用大量精力，材料只能草草应付</li>
+            <li><strong class="highlight">工具散</strong>：PPT、图表、讲稿、问答各自为政，无法一站式产出</li>
+        </ul>
+    </div>
+
+    <div class="slide">
+        <h2>解决方案：七步工作流</h2>
+        <div class="grid" style="grid-template-columns: repeat(7, 1fr); margin-top:40px;">
+            <div class="card"><h3>S1</h3><p>源码分析</p></div>
+            <div class="card"><h3>S2</h3><p>信息核对</p></div>
+            <div class="card"><h3>S3</h3><p>路演定类</p></div>
+            <div class="card"><h3>S4</h3><p>大纲构建</p></div>
+            <div class="card"><h3>S5</h3><p>图表生成</p></div>
+            <div class="card"><h3>S6</h3><p>成果生成</p></div>
+            <div class="card"><h3>S7</h3><p>交付收尾</p></div>
+        </div>
+        <p style="margin-top:40px;">每个环节都有明确产出，关键节点由你确认，<strong class="highlight">不自由发挥</strong>。</p>
+    </div>
+
+    <div class="slide">
+        <h2>核心亮点一：8类路演全覆盖</h2>
+        <div class="grid" style="grid-template-columns: repeat(4, 1fr);">
+            <div class="card"><h3>🏆</h3><p>竞赛Demo</p></div>
+            <div class="card"><h3>💰</h3><p>投资路演</p></div>
+            <div class="card"><h3>🛡️</h3><p>技术答辩</p></div>
+            <div class="card"><h3>🚀</h3><p>产品推广</p></div>
+            <div class="card"><h3>⚡</h3><p>电梯演讲</p></div>
+            <div class="card"><h3>🎪</h3><p>展位展示</p></div>
+            <div class="card"><h3>📚</h3><p>技术讲课</p></div>
+            <div class="card"><h3>🤝</h3><p>资源对接</p></div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <h2>核心亮点二：19种产物×六维版本</h2>
+        <p>不只是PPT，而是覆盖路演全链路：</p>
+        <ul style="margin-top:20px;">
+            <li><strong class="highlight">赛前</strong>：报名表、项目简介、一句话介绍、参赛声明</li>
+            <li><strong class="highlight">现场</strong>：HTML路演页、PPT、演讲腹稿、图表、Demo操作清单</li>
+            <li><strong class="highlight">评委</strong>：预测问答、答辩备忘录、技术FAQ、红线应答卡</li>
+            <li><strong class="highlight">赛后</strong>：海报、社媒文案、README、短视频脚本</li>
+            <li><strong class="highlight">存档</strong>：项目档案、素材包</li>
+        </ul>
+    </div>
+
+    <div class="slide">
+        <h2>核心亮点三：三级工具链</h2>
+        <p>主工具 → 备用高赞开源工具 → 降级方案</p>
+        <ul style="margin-top:30px;">
+            <li>图表生成：<strong class="highlight">Mermaid.js 89K⭐</strong> / Chart.js 64K⭐ / HTML/CSS</li>
+            <li>代码分析：SearchCodebase / <strong class="highlight">ast-grep 15K⭐</strong> / Grep+Glob</li>
+            <li>确保每个环节都有退路，<strong class="highlight">稳定输出高质量产物</strong></li>
+        </ul>
+    </div>
+
+    <div class="slide">
+        <h2>现场Demo：用魔术师生成它自己的路演</h2>
+        <p>我现在演示的这份材料，就是<strong class="highlight">用黑客松路演魔术师生成的</strong>。</p>
+        <p style="margin-top:30px;">输入项目源码 → 7步工作流 → 自动产出HTML、讲稿、问答、架构图。</p>
+        <p style="margin-top:30px;">这就是工具的<strong class="highlight">自举验证</strong>：它能为自己做路演，就能为任何项目做路演。</p>
+    </div>
+
+    <div class="slide">
+        <h2>技术深度：为什么是工程化方案</h2>
+        <ul>
+            <li><strong class="highlight">源码驱动</strong>：从代码中提取项目定位、技术栈、核心亮点</li>
+            <li><strong class="highlight">模板化叙事</strong>：8种路演类型各有一套叙事框架</li>
+            <li><strong class="highlight">交互确认</strong>：5个关键节点由用户把关，不跑偏</li>
+            <li><strong class="highlight">完全本地运行</strong>：不联网、不外传，国内直接使用</li>
+        </ul>
+    </div>
+
+    <div class="slide">
+        <h2>生态与成绩</h2>
+        <ul>
+            <li>已开源至 GitHub：<strong class="highlight">MIT协议</strong></li>
+            <li>与 <strong class="highlight">金点子</strong>（Idea评分）和 <strong class="highlight">秦叔宝</strong>（Skill质检）形成创作者工具链</li>
+            <li>从灵感筛选 → 路演生成 → 质量检查，<strong class="highlight">覆盖创作者全链路</strong></li>
+        </ul>
+    </div>
+
+    <div class="slide">
+        <h2>未来规划</h2>
+        <div class="grid" style="grid-template-columns: repeat(3, 1fr); margin-top:30px;">
+            <div class="card"><h3>v1.1</h3><p>PPT生成支持</p></div>
+            <div class="card"><h3>v1.2</h3><p>协作评审模式</p></div>
+            <div class="card"><h3>v1.3</h3><p>AI风格学习</p></div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <h1>把时间还给DEMO打磨</h1>
+        <p style="margin-top:30px;">黑客松路演魔术师</p>
+        <p style="margin-top:20px; font-size:22px;">让每个人都能讲好自己的项目</p>
+        <p style="margin-top:40px; font-size:20px; color:#A0A0C0;">作者：喜气杨杨 | MIT License</p>
+    </div>
+
+    <div class="nav">
+        <button onclick="prev()">‹</button>
+        <button onclick="next()">›</button>
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const dotsContainer = document.getElementById('dots');
+        let current = 0;
+
+        slides.forEach((_, i) => {
+            const dot = document.createElement('div');
+            dot.className = 'dot' + (i === 0 ? ' active' : '');
+            dot.onclick = () => goTo(i);
+            dotsContainer.appendChild(dot);
+        });
+
+        function update() {
+            slides.forEach((s, i) => s.classList.toggle('active', i === current));
+            document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === current));
+        }
+
+        function next() { current = (current + 1) % slides.length; update(); }
+        function prev() { current = (current - 1 + slides.length) % slides.length; update(); }
+        function goTo(i) { current = i; update(); }
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'ArrowRight') next();
+            if (e.key === 'ArrowLeft') prev();
+        });
+    </script>
+</body>
+</html>
