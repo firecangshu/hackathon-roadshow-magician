@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>黑客松路演魔术师 · Social Preview</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            width: 1280px;
+            height: 640px;
+            background: #1A1A2E;
+            font-family: "Sarasa Gothic SC", "Microsoft YaHei", "PingFang SC", sans-serif;
+            color: #E0E0E0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 60px;
+            overflow: hidden;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+        .title {
+            font-size: 52px;
+            font-weight: 800;
+            background: linear-gradient(90deg, #00D4FF, #9B59B6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        .subtitle {
+            font-size: 22px;
+            color: #A0A0C0;
+            font-weight: 500;
+        }
+        .layers {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            width: 100%;
+            max-width: 1160px;
+        }
+        .layer {
+            display: flex;
+            align-items: center;
+            background: rgba(0, 212, 255, 0.08);
+            border: 1px solid rgba(0, 212, 255, 0.25);
+            border-radius: 14px;
+            padding: 16px 24px;
+        }
+        .layer-label {
+            width: 140px;
+            flex-shrink: 0;
+            font-size: 18px;
+            font-weight: 700;
+            color: #00D4FF;
+        }
+        .layer-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #FFFFFF;
+            margin-bottom: 4px;
+        }
+        .layer-desc {
+            font-size: 15px;
+            color: #A0A0C0;
+        }
+        .layer-items {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-left: 30px;
+        }
+        .item {
+            background: rgba(155, 89, 182, 0.15);
+            border: 1px solid rgba(155, 89, 182, 0.35);
+            border-radius: 8px;
+            padding: 6px 14px;
+            font-size: 14px;
+            color: #E0E0E0;
+            white-space: nowrap;
+        }
+        .footer {
+            margin-top: 28px;
+            display: flex;
+            gap: 40px;
+            font-size: 18px;
+            color: #A0A0C0;
+        }
+        .footer span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .footer strong {
+            color: #00D4FF;
+            font-size: 22px;
+        }
+        .badge {
+            background: rgba(0, 212, 255, 0.12);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 6px;
+            padding: 4px 10px;
+            font-size: 13px;
+            color: #00D4FF;
+            margin-left: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="title">🎩 黑客松路演魔术师</div>
+        <div class="subtitle">黑客松专属路演全链助手 · 从源代码到舞台级路演的魔法</div>
+    </div>
+    <div class="layers">
+        <div class="layer">
+            <div class="layer-label">Layer 1</div>
+            <div>
+                <div class="layer-title">场景层 · 8类路演全覆盖</div>
+                <div class="layer-desc">竞赛Demo / 投资路演 / 技术答辩 / 产品推广 / 电梯演讲 / 展位展示 / 技术讲课 / 资源对接</div>
+            </div>
+        </div>
+        <div class="layer">
+            <div class="layer-label">Layer 2</div>
+            <div>
+                <div class="layer-title">SOP层 · 7步工作流 · 5个确认点</div>
+                <div class="layer-desc">源码分析 → 信息核对 → 路演定类 → 大纲构建 → 图表生成 → 成果生成 → 交付收尾</div>
+            </div>
+        </div>
+        <div class="layer">
+            <div class="layer-label">Layer 3</div>
+            <div>
+                <div class="layer-title">工具层 · 三级工具链 · 补全降级</div>
+                <div class="layer-desc">主工具 → 备用开源高赞工具 → 降级方案，确保稳定输出高质量产物</div>
+            </div>
+        </div>
+        <div class="layer">
+            <div class="layer-label">Layer 4</div>
+            <div>
+                <div class="layer-title">产物层 · 5环节 · 19种产物</div>
+                <div class="layer-desc">赛前提报 / 现场展示 / 评委互动 / 赛后传播 / 存档复用</div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <span><strong>7</strong> 步工作流</span>
+        <span><strong>8</strong> 类路演</span>
+        <span><strong>19</strong> 种产物</span>
+        <span><strong>6</strong> 维版本</span>
+        <span class="badge">MIT License</span>
+        <span class="badge">作者：喜气杨杨</span>
+    </div>
+</body>
+</html>
