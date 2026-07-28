@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>黑客松路演魔术师 - 工业风</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Consolas', 'Courier New', monospace;
+      background: #2C2C2C;
+      color: #D0D0D0;
+      overflow: hidden;
+    }
+    .slide {
+      width: 100vw;
+      height: 100vh;
+      display: none;
+      padding: 60px;
+      position: relative;
+      border: 3px solid #FF6B35;
+    }
+    .slide.active { display: flex; flex-direction: column; justify-content: center; }
+    h1 {
+      font-size: 3.5rem;
+      color: #FF6B35;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      margin-bottom: 30px;
+      border-bottom: 4px solid #FF6B35;
+      padding-bottom: 15px;
+    }
+    h2 {
+      font-size: 2.5rem;
+      color: #FF6B35;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 25px;
+      border-left: 6px solid #FF6B35;
+      padding-left: 20px;
+    }
+    p {
+      font-size: 1.3rem;
+      line-height: 1.8;
+      color: #A0A0A0;
+      margin-bottom: 20px;
+      font-family: 'Consolas', monospace;
+    }
+    .highlight {
+      color: #FF6B35;
+      font-weight: bold;
+      background: rgba(255, 107, 53, 0.1);
+      padding: 2px 8px;
+    }
+    .stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 40px;
+    }
+    .stat-box {
+      background: #3A3A3A;
+      border: 3px solid #FF6B35;
+      padding: 30px;
+      text-align: center;
+      position: relative;
+    }
+    .stat-box::before {
+      content: '';
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      height: 6px;
+      background: #FF6B35;
+    }
+    .stat-number {
+      font-size: 3rem;
+      color: #FF6B35;
+      font-weight: bold;
+      font-family: 'Consolas', monospace;
+    }
+    .stat-label {
+      font-size: 1rem;
+      color: #7D7D7D;
+      margin-top: 10px;
+      text-transform: uppercase;
+    }
+    .nav {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      display: flex;
+      gap: 15px;
+    }
+    .nav button {
+      background: #3A3A3A;
+      border: 3px solid #FF6B35;
+      color: #FF6B35;
+      padding: 12px 24px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-family: 'Consolas', monospace;
+      text-transform: uppercase;
+      transition: all 0.3s;
+    }
+    .nav button:hover {
+      background: #FF6B35;
+      color: #2C2C2C;
+    }
+    .progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 6px;
+      background: #FF6B35;
+      transition: width 0.3s;
+    }
+    .page-num {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      font-size: 1rem;
+      color: #FF6B35;
+      font-family: 'Consolas', monospace;
+    }
+    .corner {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      border: 3px solid #FF6B35;
+    }
+    .corner-tl { top: 20px; left: 20px; border-right: none; border-bottom: none; }
+    .corner-tr { top: 20px; right: 20px; border-left: none; border-bottom: none; }
+    .corner-bl { bottom: 20px; left: 20px; border-right: none; border-top: none; }
+    .corner-br { bottom: 20px; right: 20px; border-left: none; border-top: none; }
+  </style>
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+  <div class="page-num" id="pageNum">01 / 05</div>
+
+  <div class="slide active">
+    <div class="corner corner-tl"></div>
+    <div class="corner corner-tr"></div>
+    <div class="corner corner-bl"></div>
+    <div class="corner corner-br"></div>
+    <h1>🔧 黑客松路演魔术师</h1>
+    <p>把任意成果源代码<span class="highlight">一键转换</span>为竞赛级路演材料</p>
+    <div class="stats">
+      <div class="stat-box">
+        <div class="stat-number">07</div>
+        <div class="stat-label">步工作流</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">19</div>
+        <div class="stat-label">种产物</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">06</div>
+        <div class="stat-label">维版本</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide">
+    <h2>痛点：99%的黑客松团队被路演拖后腿</h2>
+    <p>DEMO做得好，但路演材料准备耗时过长</p>
+    <p>浪费本该用于完善产品的宝贵时间</p>
+    <p style="margin-top: 40px; color: #FF6B35; font-size: 1.5rem;">解决方案：工程化生成，不浪费时间在排版和措辞上</p>
+  </div>
+
+  <div class="slide">
+    <h2>7步工作流 · 5个确认点</h2>
+    <p>S1 源码深度分析 → S2 信息核对 → S3 路演定类</p>
+    <p>→ S4 大纲构建 → S5 图表生成 → S6 成果生成 → S7 交付收尾</p>
+    <p style="margin-top: 40px; color: #FF6B35;">每步有明确产出 + 确认点，避免方向跑偏返工</p>
+  </div>
+
+  <div class="slide">
+    <h2>六维版本 × 19种产物</h2>
+    <p><span class="highlight">六维</span>：时长 × 侧重 × 风格 × 格式 × 语言 × 团队</p>
+    <p><span class="highlight">19种</span>：赛前提报(4) + 现场展示(5) + 评委互动(4) + 赛后传播(4) + 存档复用(2)</p>
+    <p style="margin-top: 40px; color: #FF6B35;">用户只需勾选，不浪费算力</p>
+  </div>
+
+  <div class="slide">
+    <h2>⭐ 开源参与</h2>
+    <p>MIT协议 · 社区友好 · 欢迎贡献</p>
+    <p style="margin-top: 30px; font-size: 1.5rem; color: #FF6B35;">Gitee地址：gitee.com/firecangshu/hackathon-roadshow-magician</p>
+    <p style="margin-top: 20px; color: #7D7D7D;">欢迎 Star · Issue · PR</p>
+  </div>
+
+  <div class="nav">
+    <button onclick="prevSlide()">← 上一页</button>
+    <button onclick="nextSlide()">下一页 →</button>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+
+    function showSlide(n) {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (n + totalSlides) % totalSlides;
+      slides[currentSlide].classList.add('active');
+      document.getElementById('pageNum').textContent = String(currentSlide + 1).padStart(2, '0') + ' / ' + String(totalSlides).padStart(2, '0');
+      document.getElementById('progress').style.width = ((currentSlide + 1) / totalSlides * 100) + '%';
+    }
+
+    function nextSlide() { showSlide(currentSlide + 1); }
+    function prevSlide() { showSlide(currentSlide - 1); }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+      if (e.key === 'ArrowLeft') prevSlide();
+    });
+
+    showSlide(0);
+  </script>
+</body>
+</html>

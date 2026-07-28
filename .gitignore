@@ -21,18 +21,18 @@ yarn-error.log*
 *.bak
 *.cache
 
-# ===== 核心内部文件（不公开，本地保留） =====
-# Skill核心定义与工作流（核心Know-how）
+# ===== 核心商业机密（本地保留，不公开）=====
+# SKILL.md 核心Know-how：7步工作流SOP、工具链调度逻辑、降级路径、依赖关系
 SKILL.md
 
-# 内部参考模板库
+# 内部参考模板库（提示词模板/规范库）
 ref-charts.md
 ref-roadshow-types.md
 
-# 内部架构图
+# 内部架构细节
 架构图.html
 
-# 内部脚本（开发/生成用）
+# 内部开发/生成/预览脚本（工具链实现细节）
 generate_social_preview.py
 preview_pitch.py
 screenshot_check.py
@@ -40,28 +40,3 @@ screenshot_check.py
 
 # 社交预览源文件（png已公开）
 social-preview.html
-
-# 内部图表素材（独立素材文件）
-路演材料/图表素材/
-
-# 旧版风格对比页（已有合集页）
-路演材料/风格对比/
-
-# 演讲稿/问答/交付清单（内部工作文档）
-路演材料/*演讲稿*.md
-路演材料/*问答*.md
-路演材料/*交付清单*.md
-路演材料/一句话介绍.md
-路演材料/项目简介.md
-
-# 旧版路演页（v2/v3旧版本）
-路演材料/*路演_v2.html
-路演材料/*路演_v3.html
-路演材料/*赛博朋克风_5min.html
-路演材料/*赛博朋克风_5min.pptx
-
-# 项目内部数据档案
-路演材料/黑客松路演魔术师_项目档案.json
-
-# 临时截图
-路演材料/推广样品/four-styles-full.png
