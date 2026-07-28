@@ -6,11 +6,17 @@
 **黑客松专属路演全链助手 · The All-in-One Roadshow Assistant for Hackathons**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-1.5.0-blue.svg)](CHANGELOG.md)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)]()
 
 **把任意成果源代码一键转换为竞赛级路演材料**
 *From source code to stage-ready pitch — in one conversation*
+
+---
+
+![4+1视觉风格 · 四套风格对比预览](style-showcase.png)
+
+**🎨 4+1视觉风格 | 📊 17种专业图表 | 🌍 中英双语 | 📦 19种产物**
 
 </div>
 
@@ -38,11 +44,23 @@ Hackathon Roadshow Magician is a **conversational pitch deck generator built for
 |------|---------|------|-------------|
 | 🎯 **7步工作流** | 7-Step Workflow | 源码分析→核对→定类→大纲→图表→生成→交付 | Analyze → Verify → Classify → Outline → Visualize → Generate → Deliver |
 | 🎪 **8类路演类型** | 8 Pitch Formats | 竞赛/投资/答辩/推广/电梯/展位/讲课/对接 | Demo Day / Investor / Defense / Launch / Elevator / Booth / Workshop / Partnering |
-| 📊 **4类图表生成** | 4 Visual Types | Mermaid流程图/HTML架构图/Chart.js数据图/概念图 | Mermaid flowcharts / HTML architecture / Chart.js data viz / Concept maps |
-| 🎨 **六维版本矩阵** | 6D Variant Matrix | 时长×侧重×风格×格式×语言×团队 | Length × Focus × Tone × Format × Language × Team |
+| 🎨 **4+1视觉风格** | 4+1 Visual Styles | 暗色科技/工业/卡通/赛博朋克/自定义 | Dark Tech / Industrial / Cartoon / Cyberpunk / Custom |
+| 📊 **17种专业图表** | 17 Chart Types | 流程图/架构图/UML/ER/关系图/3D/手绘等 | Flowcharts / Architecture / UML / ER / Graphs / 3D / Hand-drawn |
+| 🌍 **中英双语** | Bilingual Ready | 中文为主、英文点缀，风格差异化排版 | CN-primary, EN-accent, style-matched typography |
+| 🎭 **六维版本矩阵** | 6D Variant Matrix | 时长×侧重×风格×格式×语言×团队 | Length × Focus × Tone × Format × Language × Team |
 | 📦 **19种产物** | 19 Deliverables | 赛前提报4+现场展示5+评委互动4+赛后传播4+存档复用2 | Pre-event 4 + Onstage 5 + Q&A 4 + Amplify 4 + Archive 2 |
 | 🛡️ **三级工具链** | 3-Tier Toolchain | 主工具→备用(开源高赞)→降级方案 | Primary → Backup (open-source) → Fallback |
 | 🔒 **完全本地运行** | Fully Local | 绝不联网、绝不外传 | Runs entirely on your machine — nothing leaves your device |
+
+---
+
+## 🎨 视觉风格预览 | Style Showcase
+
+| 暗色科技风 | 工业风 | 卡通风 | 赛博朋克风 |
+|:---:|:---:|:---:|:---:|
+| Dark Tech | Industrial | Cartoon | Cyberpunk |
+| #1A1A2E + #00D4FF | #2C2C2C + #FF6B35 | #FFF8E7 + #FF6B6B | #0D0D0D + #FF00FF/#00FFFF |
+| 霓虹发光 · 科技感 | 硬朗线条 · 金属质感 | 圆润可爱 · 活泼有趣 | 霓虹渐变 · 故障艺术 |
 
 ---
 
@@ -52,15 +70,15 @@ Hackathon Roadshow Magician is a **conversational pitch deck generator built for
 
 1. **触发**：对AI助手说"黑客松路演"或"帮我做路演材料"
 2. **丢入项目**：提供你的成果项目路径（源代码/文档/链接）
-3. **7步交互**：按SOP流程确认信息、选择类型、审核大纲
-4. **获取产物**：HTML路演页 + 演讲稿 + 问答 + 图表等
+3. **7步交互**：按SOP流程确认信息、选择类型、审核大纲、选择风格
+4. **获取产物**：多风格HTML路演页 + 演讲稿 + 问答 + 图表 + 推广样品截图
 
 ### English
 
 1. **Kick it off**: Say "hackathon roadshow" or "help me build a pitch"
 2. **Drop in your project**: Point it at your source code, docs, or links
-3. **Walk through 7 steps**: Confirm the details, pick a format, review the outline
-4. **Get your deck**: Interactive HTML page + speaker script + Q&A prep + charts
+3. **Walk through 7 steps**: Confirm details, pick format & style, review outline
+4. **Get your deck**: Multi-style HTML pages + speaker script + Q&A prep + charts + promo screenshots
 
 ---
 
@@ -75,14 +93,15 @@ Hackathon Roadshow Magician is a **conversational pitch deck generator built for
 │  7步工作流 · 5个确认点 (7 Steps · 5 Checkpoints)     │
 ├─────────────────────────────────────────────────────┤
 │  Layer 3 · 工具层 (Tools)                            │
-│  三级工具链 · 补全降级 (3-Tier · Fallback)           │
+│  三级工具链 · 17种图表 · 7种布局 · 专家降级           │
 ├─────────────────────────────────────────────────────┤
-│  Layer 4 · 产物层 (Deliverables)                     │
-│  5环节 · 19种产物 (5 Stages · 19 Deliverables)       │
+│  Layer 4 · 视觉层 (Visuals)                          │
+│  4+1风格 · 中英双语 · 7种渲染风格                    │
+├─────────────────────────────────────────────────────┤
+│  Layer 5 · 产物层 (Deliverables)                     │
+│  5环节 · 19种产物 · 推广样品自动生成                 │
 └─────────────────────────────────────────────────────┘
 ```
-
-> 📁 完整交互式架构图见 [架构图.html](架构图.html)
 
 ---
 
@@ -90,13 +109,19 @@ Hackathon Roadshow Magician is a **conversational pitch deck generator built for
 
 ```
 hackathon-roadshow-magician__skillhub/
-├── SKILL.md                 # 主文件 (Skill Definition)
+├── SKILL.md                 # 主文件 (Skill Definition, v1.5.0)
 ├── ref-roadshow-types.md    # 8类路演模板库 (Pitch Format Library)
-├── ref-charts.md            # 图表模板与风格规范 (Visual Templates)
+├── ref-charts.md            # 17种图表模板与风格规范
 ├── 架构图.html              # 交互式架构图 (Interactive Architecture)
+├── style-showcase.png       # 四风格对比预览图 (Style Showcase)
+├── social-preview.png       # GitHub社交预览图 (Social Preview)
+├── 路演材料/                 # 路演产物 (Generated Pitch Materials)
+│   ├── 推广样品/             # 各风格截图，用于宣传 (Promo Screenshots)
+│   ├── 图表素材/             # 独立图表文件 (Chart Assets)
+│   ├── 风格对比/             # 单风格预览页 (Style Demos)
+│   └── *_5min_完整版.html    # 四套双语风格路演页
 ├── CHANGELOG.md             # 版本记录 (Changelog)
 ├── LICENSE                  # MIT协议 (License)
-├── .gitignore               # Git忽略规则
 └── README.md                # 本文件 (This File)
 ```
 
@@ -134,8 +159,12 @@ hackathon-roadshow-magician__skillhub/
 | 环节 | 主工具 | 备用(开源高赞) | 降级方案 |
 |------|--------|---------------|----------|
 | 代码搜索 | SearchCodebase | ast-grep (15.2K⭐) | Grep+Glob |
-| 图表生成 | Mermaid.js (89K⭐) | Chart.js (64K⭐) | HTML/CSS |
-| 文件写入 | Write | SearchReplace | echo |
+| 流程图/架构 | Mermaid.js (89K⭐) | flowchart.js / draw.io | HTML/CSS+箭头 |
+| 数据图表 | Chart.js (64K⭐) | ECharts (61K⭐) | 纯CSS柱状图/进度条 |
+| 关系图/依赖 | D3.js (110K⭐) | cytoscape.js (10K⭐) | HTML/CSS连线+卡片 |
+| 交互动图 | ECharts (61K⭐) | Plotly.js / Leaflet | 静态SVG |
+| 手绘风格 | Rough.js (20K⭐) | rough-notation | 波浪线CSS+手写字体 |
+| 文件写入 | Write | Edit追加 | 分片Write拼合 |
 | 渲染测试 | RunCommand | Grep验证 | 人工检查 |
 
 ---
@@ -154,22 +183,26 @@ Golden Idea (Idea Evaluator)  →  Roadshow Magician (Pitch Builder)  →  Qinsh
 
 | 版本 | 功能 | 状态 |
 |------|------|------|
-| v1.0.0 | 7步工作流 + 六维版本 + 19种产物 + 双语 | ✅ 当前 |
-| v1.1.0 | PPT生成支持 | 🔄 规划中 |
-| v1.2.0 | 协作模式（多人评审大纲） | 📋 规划中 |
-| v1.3.0 | AI驱动个性化风格学习 | 📋 规划中 |
+| v1.0.0 | 7步工作流 + 六维版本 + 19种产物 | ✅ 已发布 |
+| v1.4.0 | Ask/Plan模式 + 追问环节 + 数据铁律 + 经验库 | ✅ 已发布 |
+| v1.5.0 | 4+1视觉风格 + 17种图表 + 中英双语 + 推广样品 | ✅ 当前 |
+| v1.6.0 | PPT生成支持（MCP/HTML转PPT） | 🔄 规划中 |
+| v1.7.0 | 协作模式（多人评审大纲） | 📋 规划中 |
+| v1.8.0 | AI驱动个性化风格学习 | 📋 规划中 |
 
 ---
 
 ## 🎩 自举案例：魔术师的路演
 
-这份README同目录下的路演材料，就是**用黑客松路演魔术师给它自己生成的**：
+这份README同目录下的路演材料，就是**用黑客松路演魔术师给它自己生成的**（四套风格双语版）：
 
-- [📊 HTML路演页 v2](路演材料/黑客松路演魔术师_路演_v2.html) — 竞赛Demo现场演示
-- [📝 演讲稿 v2](路演材料/黑客松路演魔术师_演讲稿_v2.md) — 15分钟完整讲稿
-- [❓ 预测问答](路演材料/黑客松路演魔术师_问答.md) — 评委互动准备
-
-![路演预览](路演材料/preview_slide_1.png)
+- [🌑 暗色科技风 · 5min完整版](路演材料/黑客松路演魔术师_暗色科技风_5min_完整版.html) — 默认推荐，科技感十足
+- [🟧 工业风 · 5min完整版](路演材料/黑客松路演魔术师_工业风_5min_完整版.html) — 硬朗金属质感
+- [🎈 卡通风 · 5min完整版](路演材料/黑客松路演魔术师_卡通风_5min_完整版.html) — 活泼可爱
+- [💜 赛博朋克风 · 5min完整版](路演材料/黑客松路演魔术师_赛博朋克风_5min_完整版.html) — 霓虹故障艺术
+- [📊 风格合集对比预览](路演材料/风格合集_对比预览.html) — 四套风格同屏对比
+- [📝 5分钟演讲稿](路演材料/黑客松路演魔术师_演讲稿_5min.md) — 口语化腹稿
+- [❓ 预测问答5min版](路演材料/黑客松路演魔术师_问答_5min.md) — 评委互动准备
 
 > **同一个项目，同一套代码，不同的表达。** 这不是魔法，是工程化。
 
