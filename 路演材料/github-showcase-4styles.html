@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎩 黑客松路演魔术师 · 四风格对比</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+      background: #0A0A0F;
+      padding: 30px 40px;
+      min-width: 1800px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .header h1 {
+      font-size: 2.2rem;
+      background: linear-gradient(90deg, #00D4FF, #B388FF, #FF00FF, #FF6B35);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 6px;
+    }
+    .header .en {
+      font-size: 0.85rem;
+      color: #555;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+    .tagline {
+      text-align: center;
+      color: #888;
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+    }
+    .tagline-en {
+      text-align: center;
+      color: #555;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      margin-bottom: 35px;
+    }
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 1800px;
+      margin: 0 auto;
+    }
+    .pitch-frame {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+      position: relative;
+    }
+    .pitch-label {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      z-index: 10;
+      backdrop-filter: blur(8px);
+    }
+    .pitch-page {
+      width: 100%;
+      aspect-ratio: 16/10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 20px;
+      position: relative;
+    }
+    /* ===== 暗色科技风 Dark Tech ===== */
+    .dark-tech {
+      background: linear-gradient(135deg, #1A1A2E 0%, #16213E 50%, #0F3460 100%);
+      border: 2px solid rgba(0, 212, 255, 0.3);
+    }
+    .dark-tech .pitch-label {
+      background: rgba(0, 212, 255, 0.2);
+      color: #00D4FF;
+      border: 1px solid rgba(0, 212, 255, 0.4);
+    }
+    .dark-tech .logo { font-size: 3rem; margin-bottom: 10px; }
+    .dark-tech h2 {
+      color: #00D4FF;
+      font-size: 1.6rem;
+      text-shadow: 0 0 20px rgba(0,212,255,0.5);
+      margin-bottom: 4px;
+    }
+    .dark-tech .h2-en {
+      color: rgba(0,212,255,0.6);
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .dark-tech .tag {
+      color: #B388FF;
+      font-size: 0.9rem;
+      text-shadow: 0 0 10px rgba(179,136,255,0.4);
+    }
+    .dark-tech .tag-en {
+      color: rgba(179,136,255,0.5);
+      font-size: 0.65rem;
+      letter-spacing: 1px;
+      margin-top: 2px;
+    }
+    .dark-tech .grid-line {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #00D4FF, transparent);
+      opacity: 0.4;
+    }
+    /* ===== 工业风 Industrial ===== */
+    .industrial {
+      background: linear-gradient(135deg, #2C2C2C 0%, #1A1A1A 100%);
+      border: 3px solid #444;
+    }
+    .industrial .pitch-label {
+      background: rgba(255, 107, 53, 0.2);
+      color: #FF6B35;
+      border: 2px solid #FF6B35;
+      font-family: Consolas, monospace;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .industrial .stripe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: repeating-linear-gradient(
+        90deg,
+        #FF6B35 0px, #FF6B35 20px,
+        #2C2C2C 20px, #2C2C2C 40px
+      );
+    }
+    .industrial .logo { font-size: 3rem; margin-bottom: 10px; }
+    .industrial h2 {
+      color: #FF6B35;
+      font-size: 1.6rem;
+      font-family: Consolas, monospace;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 4px;
+    }
+    .industrial .h2-en {
+      color: #7D7D7D;
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      font-family: Consolas, monospace;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .industrial .tag {
+      color: #CCC;
+      font-size: 0.9rem;
+      font-family: Consolas, monospace;
+    }
+    .industrial .tag-en {
+      color: #7D7D7D;
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      font-family: Consolas, monospace;
+      margin-top: 2px;
+    }
+    .industrial .rivet {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: radial-gradient(circle, #666 30%, #333 100%);
+      border-radius: 50%;
+    }
+    .industrial .rivet.tl { top: 15px; left: 15px; }
+    .industrial .rivet.tr { top: 15px; right: 15px; }
+    .industrial .rivet.bl { bottom: 15px; left: 15px; }
+    .industrial .rivet.br { bottom: 15px; right: 15px; }
+    /* ===== 卡通风 Cartoon ===== */
+    .cartoon {
+      background: linear-gradient(135deg, #FFF8E7 0%, #FFEAA7 100%);
+      border: 3px solid #FF6B6B;
+      border-radius: 24px;
+    }
+    .cartoon .pitch-label {
+      background: #FF6B6B;
+      color: white;
+      border-radius: 30px;
+      font-size: 0.8rem;
+    }
+    .cartoon .bubble {
+      position: absolute;
+      background: rgba(78, 205, 196, 0.3);
+      border-radius: 50%;
+    }
+    .cartoon .bubble.b1 { width: 60px; height: 60px; top: 20px; right: 30px; }
+    .cartoon .bubble.b2 { width: 40px; height: 40px; bottom: 40px; left: 20px; background: rgba(255, 107, 107, 0.2); }
+    .cartoon .bubble.b3 { width: 25px; height: 25px; top: 60px; left: 40px; background: rgba(255, 230, 109, 0.5); }
+    .cartoon .logo { font-size: 3rem; margin-bottom: 10px; }
+    .cartoon h2 {
+      color: #FF6B6B;
+      font-size: 1.6rem;
+      font-family: 'Comic Sans MS', cursive;
+      margin-bottom: 4px;
+    }
+    .cartoon .h2-en {
+      color: #4ECDC4;
+      font-size: 0.7rem;
+      font-family: 'Comic Sans MS', cursive;
+      margin-bottom: 12px;
+    }
+    .cartoon .tag {
+      color: #FF6B6B;
+      font-size: 0.9rem;
+      font-family: 'Comic Sans MS', cursive;
+    }
+    .cartoon .tag-en {
+      color: #4ECDC4;
+      font-size: 0.65rem;
+      font-family: 'Comic Sans MS', cursive;
+      margin-top: 2px;
+    }
+    /* ===== 赛博朋克风 Cyberpunk ===== */
+    .cyberpunk {
+      background: linear-gradient(135deg, #0D0D0D 0%, #1A0A1A 50%, #0A0A1A 100%);
+      border: 2px solid #FF00FF;
+      box-shadow: 0 0 20px rgba(255,0,255,0.3), inset 0 0 20px rgba(255,0,255,0.05);
+    }
+    .cyberpunk .pitch-label {
+      background: rgba(255, 0, 255, 0.2);
+      color: #FF00FF;
+      border: 1px solid #FF00FF;
+      font-family: 'Courier New', monospace;
+      text-transform: uppercase;
+      text-shadow: 0 0 8px #FF00FF;
+    }
+    .cyberpunk .glitch-line {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #FF00FF, #00FFFF, #FF00FF);
+      animation: glitch 2s infinite;
+    }
+    @keyframes glitch {
+      0%, 90%, 100% { opacity: 1; transform: translateX(0); }
+      92% { opacity: 0.8; transform: translateX(-2px); }
+      94% { opacity: 1; transform: translateX(2px); }
+      96% { opacity: 0.6; transform: translateX(-1px); }
+    }
+    .cyberpunk .logo { font-size: 3rem; margin-bottom: 10px; filter: drop-shadow(0 0 10px #FF00FF); }
+    .cyberpunk h2 {
+      color: #FF00FF;
+      font-size: 1.6rem;
+      font-family: 'Courier New', monospace;
+      text-shadow: 0 0 15px #FF00FF, 2px 0 0 #00FFFF;
+      margin-bottom: 4px;
+    }
+    .cyberpunk .h2-en {
+      color: #00FFFF;
+      font-size: 0.65rem;
+      letter-spacing: 3px;
+      font-family: 'Courier New', monospace;
+      text-shadow: 0 0 8px #00FFFF;
+      margin-bottom: 12px;
+    }
+    .cyberpunk .tag {
+      color: #00FFFF;
+      font-size: 0.9rem;
+      font-family: 'Courier New', monospace;
+      text-shadow: 0 0 8px #00FFFF;
+    }
+    .cyberpunk .tag-en {
+      color: rgba(0,255,255,0.6);
+      font-size: 0.6rem;
+      letter-spacing: 2px;
+      font-family: 'Courier New', monospace;
+      margin-top: 2px;
+    }
+    .cyberpunk .scanline {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,255,255,0.03) 2px,
+        rgba(0,255,255,0.03) 4px
+      );
+      pointer-events: none;
+    }
+    .footer-bar {
+      text-align: center;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #222;
+    }
+    .footer-bar .features {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 10px;
+    }
+    .footer-bar .feat {
+      color: #666;
+      font-size: 0.95rem;
+    }
+    .footer-bar .feat b {
+      color: #00D4FF;
+    }
+    .footer-bar .copy {
+      color: #444;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>🎩 黑客松路演魔术师</h1>
+    <div class="en">HACKATHON ROADSHOW MAGICIAN</div>
+  </div>
+  <div class="tagline">4+1视觉风格 · 17种专业图表 · 中英双语 · 19种产物</div>
+  <div class="tagline-en">4+1 Visual Styles · 17 Chart Types · Bilingual · 19 Deliverables</div>
+
+  <div class="grid-4">
+    <!-- 暗色科技风 -->
+    <div class="pitch-frame">
+      <div class="pitch-page dark-tech">
+        <div class="pitch-label">🌑 暗色科技风</div>
+        <div class="logo">🎩</div>
+        <h2>黑客松路演魔术师</h2>
+        <div class="h2-en">HACKATHON ROADSHOW MAGICIAN</div>
+        <div class="tag">一键生成竞赛级路演材料</div>
+        <div class="tag-en">ONE-CLICK PITCH DECK GENERATION</div>
+        <div class="grid-line"></div>
+      </div>
+    </div>
+
+    <!-- 工业风 -->
+    <div class="pitch-frame">
+      <div class="pitch-page industrial">
+        <div class="stripe"></div>
+        <div class="rivet tl"></div>
+        <div class="rivet tr"></div>
+        <div class="rivet bl"></div>
+        <div class="rivet br"></div>
+        <div class="pitch-label">🟧 INDUSTRIAL</div>
+        <div class="logo">🔧</div>
+        <h2>ROADSHOW BUILDER</h2>
+        <div class="h2-en">// HACKATHON EDITION</div>
+        <div class="tag">BUILD PITCH DECKS</div>
+        <div class="tag-en">// ENGINEERED FOR SPEED</div>
+      </div>
+    </div>
+
+    <!-- 卡通风 -->
+    <div class="pitch-frame">
+      <div class="pitch-page cartoon">
+        <div class="bubble b1"></div>
+        <div class="bubble b2"></div>
+        <div class="bubble b3"></div>
+        <div class="pitch-label">🎈 卡通风</div>
+        <div class="logo">🎪</div>
+        <h2>路演小魔法师</h2>
+        <div class="h2-en">✨ Roadshow Magic ✨</div>
+        <div class="tag">轻松做出漂亮路演！</div>
+        <div class="tag-en">Fun & Easy Pitches!</div>
+      </div>
+    </div>
+
+    <!-- 赛博朋克风 -->
+    <div class="pitch-frame">
+      <div class="pitch-page cyberpunk">
+        <div class="glitch-line"></div>
+        <div class="scanline"></div>
+        <div class="pitch-label">💜 CYBERPUNK</div>
+        <div class="logo">🌆</div>
+        <h2>PITCH.EXE</h2>
+        <div class="h2-en">// NEURAL_PITCH_SYS v2.3</div>
+        <div class="tag">> GENERATE_ROADSHOT()</div>
+        <div class="tag-en">status: READY | mode: HACK</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bar">
+    <div class="features">
+      <div class="feat"><b>7步</b> 工作流</div>
+      <div class="feat"><b>8类</b> 路演类型</div>
+      <div class="feat"><b>17种</b> 专业图表</div>
+      <div class="feat"><b>19种</b> 交付产物</div>
+    </div>
+    <div class="copy">MIT License · 喜气杨杨 · From source code to stage-ready pitch</div>
+  </div>
+</body>
+</html>
