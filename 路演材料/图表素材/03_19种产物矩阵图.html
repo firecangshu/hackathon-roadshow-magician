@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>19种产物矩阵图</title>
+<style>
+:root{--bg-primary:#1A1A2E;--bg-secondary:#16213E;--bg-card:#0F3460;--accent-cyan:#00D4FF;--accent-purple:#7B2FF7;--accent-pink:#F94CA4;--accent-green:#00FF88;--accent-orange:#FF8C00;--text-primary:#E8E8E8;--text-secondary:#A0A0B8}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Sarasa Gothic SC","Microsoft YaHei",sans-serif;background:var(--bg-primary);color:var(--text-primary);padding:40px 20px;min-height:100vh}
+.container{max-width:1400px;margin:0 auto}
+.header{text-align:center;margin-bottom:40px}
+.header h1{font-size:32px;background:linear-gradient(90deg,var(--accent-cyan),var(--accent-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px}
+.header p{color:var(--text-secondary);font-size:14px}
+.matrix{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin:20px 0}
+.stage{background:var(--bg-card);border-radius:12px;padding:20px;position:relative;overflow:hidden;transition:all 0.3s}
+.stage::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px}
+.stage-1::before{background:linear-gradient(90deg,var(--accent-green),var(--accent-cyan))}
+.stage-2::before{background:linear-gradient(90deg,var(--accent-cyan),var(--accent-purple))}
+.stage-3::before{background:linear-gradient(90deg,var(--accent-purple),var(--accent-pink))}
+.stage-4::before{background:linear-gradient(90deg,var(--accent-pink),var(--accent-orange))}
+.stage-5::before{background:linear-gradient(90deg,var(--accent-orange),var(--accent-green))}
+.stage:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,212,255,0.2)}
+.stage-header{text-align:center;margin-bottom:16px}
+.stage-name{font-size:16px;font-weight:bold;margin-bottom:4px}
+.stage-1 .stage-name{color:var(--accent-green)}
+.stage-2 .stage-name{color:var(--accent-cyan)}
+.stage-3 .stage-name{color:var(--accent-purple)}
+.stage-4 .stage-name{color:var(--accent-pink)}
+.stage-5 .stage-name{color:var(--accent-orange)}
+.stage-count{font-size:12px;color:var(--text-secondary)}
+.product-list{display:flex;flex-direction:column;gap:8px}
+.product-item{background:rgba(255,255,255,0.05);border-radius:6px;padding:10px 12px;display:flex;justify-content:space-between;align-items:center;font-size:13px;transition:all 0.2s}
+.product-item:hover{background:rgba(255,255,255,0.1)}
+.product-name{color:var(--text-primary)}
+.product-format{font-size:11px;color:var(--accent-cyan);background:rgba(0,212,255,0.1);padding:2px 6px;border-radius:3px}
+.mvp-badge{display:inline-block;background:var(--accent-green);color:var(--bg-primary);font-size:10px;font-weight:bold;padding:2px 6px;border-radius:3px;margin-left:4px}
+.summary{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:20px}
+.summary-item{background:var(--bg-secondary);border-radius:8px;padding:12px;text-align:center}
+.summary-num{font-size:24px;font-weight:bold;background:linear-gradient(180deg,var(--accent-cyan),var(--accent-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.summary-label{font-size:11px;color:var(--text-secondary);margin-top:4px}
+.legend{display:flex;justify-content:center;gap:24px;margin-top:30px;flex-wrap:wrap}
+.legend-item{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-secondary)}
+.legend-color{width:12px;height:12px;border-radius:3px}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>19种产物矩阵图</h1>
+    <p>5环节 · 19种产物 · 覆盖路演全链路</p>
+  </div>
+
+  <div class="matrix">
+    <div class="stage stage-1">
+      <div class="stage-header">
+        <div class="stage-name">环节1 · 赛前提报</div>
+        <div class="stage-count">4种产物</div>
+      </div>
+      <div class="product-list">
+        <div class="product-item"><span class="product-name">① 项目报名表</span><span class="product-format">.md</span></div>
+        <div class="product-item"><span class="product-name">② 项目简介</span><span class="product-format">.md</span></div>
+        <div class="product-item"><span class="product-name">③ 一句话介绍</span><span class="product-format">.txt</span></div>
+        <div class="product-item"><span class="product-name">④ 参赛声明</span><span class="product-format">.md</span></div>
+      </div>
+    </div>
+
+    <div class="stage stage-2">
+      <div class="stage-header">
+        <div class="stage-name">环节2 · 现场展示</div>
+        <div class="stage-count">5种产物</div>
+      </div>
+      <div class="product-list">
+        <div class="product-item"><span class="product-name">⑤ HTML路演页</span><span class="product-format">.html</span><span class="mvp-badge">MVP</span></div>
+        <div class="product-item"><span class="product-name">⑥ PPT演示文稿</span><span class="product-format">.pptx</span></div>
+        <div class="product-item"><span class="product-name">⑦ 演讲腹稿</span><span class="product-format">.md</span><span class="mvp-badge">MVP</span></div>
+        <div class="product-item"><span class="product-name">⑧ 图表素材</span><span class="product-format">.svg</span><span class="mvp-badge">MVP</span></div>
+        <div class="product-item"><span class="product-name">⑨ 演示操作清单</span><span class="product-format">.md</span></div>
+      </div>
+    </div>
+
+    <div class="stage stage-3">
+      <div class="stage-header">
+        <div class="stage-name">环节3 · 评委互动</div>
+        <div class="stage-count">4种产物</div>
+      </div>
+      <div class="product-list">
+        <div class="product-item"><span class="product-name">⑩ 预测问答</span><span class="product-format">.md</span><span class="mvp-badge">MVP</span></div>
+        <div class="product-item"><span class="product-name">⑪ 答辩备忘录</span><span class="product-format">.md</span></div>
+        <div class="product-item"><span class="product-name">⑫ 技术FAQ</span><span class="product-format">.md</span></div>
+        <div class="product-item"><span class="product-name">⑬ 红线应答卡</span><span class="product-format">.md</span></div>
+      </div>
+    </div>
+
+    <div class="stage stage-4">
+      <div class="stage-header">
+        <div class="stage-name">环节4 · 赛后传播</div>
+        <div class="stage-count">4种产物</div>
+      </div>
+      <div class="product-list">
+        <div class="product-item"><span class="product-name">⑭ 项目海报</span><span class="product-format">.html</span></div>
+        <div class="product-item"><span class="product-name">⑮ 社交媒体文案</span><span class="product-format">.md</span></div>
+        <div class="product-item"><span class="product-name">⑯ GitHub README</span><span class="product-format">.md</span></div>
+        <div class="product-item"><span class="product-name">⑰ 短视频脚本</span><span class="product-format">.md</span></div>
+      </div>
+    </div>
+
+    <div class="stage stage-5">
+      <div class="stage-header">
+        <div class="stage-name">环节5 · 存档复用</div>
+        <div class="stage-count">2种产物</div>
+      </div>
+      <div class="product-list">
+        <div class="product-item"><span class="product-name">⑱ 项目档案</span><span class="product-format">.json</span></div>
+        <div class="product-item"><span class="product-name">⑲ 路演素材包</span><span class="product-format">.zip</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="summary">
+    <div class="summary-item"><div class="summary-num">4</div><div class="summary-label">赛前提报</div></div>
+    <div class="summary-item"><div class="summary-num">5</div><div class="summary-label">现场展示</div></div>
+    <div class="summary-item"><div class="summary-num">4</div><div class="summary-label">评委互动</div></div>
+    <div class="summary-item"><div class="summary-num">4</div><div class="summary-label">赛后传播</div></div>
+    <div class="summary-item"><div class="summary-num">2</div><div class="summary-label">存档复用</div></div>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-color" style="background:var(--accent-green)"></div>赛前提报</div>
+    <div class="legend-item"><div class="legend-color" style="background:var(--accent-cyan)"></div>现场展示</div>
+    <div class="legend-item"><div class="legend-color" style="background:var(--accent-purple)"></div>评委互动</div>
+    <div class="legend-item"><div class="legend-color" style="background:var(--accent-pink)"></div>赛后传播</div>
+    <div class="legend-item"><div class="legend-color" style="background:var(--accent-orange)"></div>存档复用</div>
+    <div class="legend-item"><div class="legend-color" style="background:var(--accent-green)"></div>MVP默认产出</div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>黑客松路演魔术师 - 暗色科技风 5分钟完整版</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: #1A1A2E;
+      color: #00D4FF;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .slide {
+      width: 100vw;
+      height: 100vh;
+      display: none;
+      padding: 30px 50px;
+      position: relative;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .slide.active { display: flex; }
+    h1 {
+      font-size: 3rem;
+      color: #00D4FF;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+    h2 {
+      font-size: 2rem;
+      color: #00D4FF;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+    .en {
+      font-size: 0.85em;
+      opacity: 0.7;
+      letter-spacing: 1px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      font-style: italic;
+      font-weight: 400;
+      margin-bottom: 15px;
+    }
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #E0E0E0;
+      margin-bottom: 12px;
+    }
+    .highlight {
+      color: #B388FF;
+      font-weight: bold;
+    }
+    .stats {
+      display: flex;
+      gap: 30px;
+      margin-top: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .stat-box {
+      background: rgba(0, 212, 255, 0.08);
+      border: 2px solid rgba(0, 212, 255, 0.5);
+      padding: 18px 28px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+      border-radius: 10px;
+    }
+    .stat-number {
+      font-size: 2.8rem;
+      color: #00D4FF;
+      font-weight: bold;
+    }
+    .stat-label {
+      font-size: 0.95rem;
+      color: #B0BEC5;
+      margin-top: 6px;
+    }
+    .flow-h {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+    .flow-node {
+      background: rgba(0, 212, 255, 0.06);
+      border: 2px solid rgba(0, 212, 255, 0.5);
+      border-radius: 10px;
+      padding: 10px 14px;
+      text-align: center;
+      position: relative;
+      min-width: 95px;
+      transition: all 0.3s;
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.15);
+    }
+    .flow-node:hover {
+      border-color: #B388FF;
+      box-shadow: 0 0 20px rgba(179, 136, 255, 0.4);
+      transform: translateY(-3px);
+    }
+    .flow-node.cp {
+      border-color: #B388FF;
+      background: rgba(179, 136, 255, 0.12);
+    }
+    .flow-step-num {
+      font-size: 1.2rem;
+      color: #B388FF;
+      font-weight: bold;
+    }
+    .flow-step-title {
+      font-size: 0.8rem;
+      color: #E0E0E0;
+      margin-top: 4px;
+    }
+    .flow-step-title-en {
+      font-size: 0.65rem;
+      opacity: 0.7;
+      letter-spacing: 0.5px;
+      font-style: italic;
+      color: #B0BEC5;
+      margin-top: 2px;
+    }
+    .flow-arrow {
+      color: #00D4FF;
+      font-size: 1.3rem;
+      opacity: 0.7;
+    }
+    .cp-badge {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: #B388FF;
+      color: #1A1A2E;
+      font-size: 0.65rem;
+      padding: 2px 6px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+    .arch-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+      max-width: 750px;
+      margin-top: 10px;
+    }
+    .arch-layer {
+      background: linear-gradient(90deg, rgba(0, 212, 255, 0.06), rgba(179, 136, 255, 0.06));
+      border: 2px solid rgba(0, 212, 255, 0.5);
+      border-radius: 10px;
+      padding: 12px 22px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      transition: all 0.3s;
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+    }
+    .arch-layer:hover {
+      border-color: #B388FF;
+      box-shadow: 0 0 20px rgba(179, 136, 255, 0.35);
+    }
+    .layer-icon {
+      font-size: 1.8rem;
+      width: 45px;
+      text-align: center;
+    }
+    .layer-title {
+      font-size: 1.1rem;
+      color: #B388FF;
+      font-weight: bold;
+      min-width: 130px;
+      text-align: left;
+    }
+    .layer-title-en {
+      font-size: 0.7rem;
+      opacity: 0.7;
+      letter-spacing: 0.5px;
+      font-style: italic;
+      font-weight: 400;
+      display: block;
+    }
+    .layer-content {
+      font-size: 0.95rem;
+      color: #E0E0E0;
+      text-align: left;
+      flex: 1;
+    }
+    .matrix-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      width: 100%;
+      max-width: 850px;
+      margin-top: 10px;
+    }
+    .dim-card {
+      background: rgba(0, 212, 255, 0.04);
+      border: 2px solid rgba(0, 212, 255, 0.4);
+      border-radius: 10px;
+      padding: 14px;
+      text-align: center;
+      transition: all 0.3s;
+      box-shadow: 0 0 12px rgba(0, 212, 255, 0.15);
+    }
+    .dim-card:hover {
+      border-color: #B388FF;
+      box-shadow: 0 0 18px rgba(179, 136, 255, 0.35);
+      transform: translateY(-2px);
+    }
+    .dim-icon {
+      font-size: 1.6rem;
+      margin-bottom: 6px;
+    }
+    .dim-name {
+      font-size: 1rem;
+      color: #B388FF;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+    .dim-name-en {
+      font-size: 0.7rem;
+      opacity: 0.7;
+      letter-spacing: 0.5px;
+      font-style: italic;
+      font-weight: 400;
+      display: block;
+    }
+    .dim-values {
+      font-size: 0.8rem;
+      color: #B0BEC5;
+      line-height: 1.4;
+    }
+    .products-ring {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+    .product-group {
+      background: rgba(0, 212, 255, 0.04);
+      border: 2px solid rgba(0, 212, 255, 0.4);
+      border-radius: 50%;
+      width: 125px;
+      height: 125px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+      position: relative;
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+    }
+    .product-group:hover {
+      border-color: #B388FF;
+      box-shadow: 0 0 22px rgba(179, 136, 255, 0.4);
+      transform: scale(1.03);
+    }
+    .product-count {
+      font-size: 1.8rem;
+      color: #B388FF;
+      font-weight: bold;
+    }
+    .product-stage {
+      font-size: 0.75rem;
+      color: #E0E0E0;
+      margin-top: 4px;
+      text-align: center;
+      padding: 0 8px;
+    }
+    .product-stage-en {
+      font-size: 0.6rem;
+      opacity: 0.7;
+      letter-spacing: 0.3px;
+      font-style: italic;
+      color: #B0BEC5;
+    }
+    .product-items {
+      font-size: 0.65rem;
+      color: rgba(176, 190, 197, 0.8);
+      margin-top: 4px;
+      text-align: center;
+      padding: 0 5px;
+      line-height: 1.3;
+    }
+    .toolchain-flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+    .tool-col {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .tool-tier {
+      background: rgba(0, 212, 255, 0.06);
+      border: 2px solid rgba(0, 212, 255, 0.4);
+      border-radius: 8px;
+      padding: 8px 12px;
+      text-align: center;
+      min-width: 165px;
+      transition: all 0.3s;
+      box-shadow: 0 0 10px rgba(0, 212, 255, 0.15);
+    }
+    .tool-tier:hover {
+      border-color: #B388FF;
+      box-shadow: 0 0 15px rgba(179, 136, 255, 0.35);
+    }
+    .tool-tier.primary { border-color: #00D4FF; background: rgba(0, 212, 255, 0.1); }
+    .tool-label {
+      font-size: 0.75rem;
+      color: #00D4FF;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+    .tool-name {
+      font-size: 0.85rem;
+      color: #E0E0E0;
+    }
+    .tool-arrow-h {
+      color: #00D4FF;
+      font-size: 1.3rem;
+      opacity: 0.7;
+    }
+    .advantages-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      width: 100%;
+      max-width: 750px;
+      margin-top: 15px;
+    }
+    .adv-card {
+      background: rgba(0, 212, 255, 0.04);
+      border: 2px solid rgba(0, 212, 255, 0.4);
+      border-radius: 10px;
+      padding: 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.3s;
+      text-align: left;
+      box-shadow: 0 0 12px rgba(0, 212, 255, 0.15);
+    }
+    .adv-card:hover {
+      border-color: #B388FF;
+      box-shadow: 0 0 18px rgba(179, 136, 255, 0.35);
+    }
+    .adv-icon {
+      font-size: 1.8rem;
+      flex-shrink: 0;
+    }
+    .adv-title {
+      font-size: 1rem;
+      color: #B388FF;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+    .adv-title-en {
+      font-size: 0.7rem;
+      opacity: 0.7;
+      letter-spacing: 0.5px;
+      font-style: italic;
+      font-weight: 400;
+      display: block;
+    }
+    .adv-desc {
+      font-size: 0.85rem;
+      color: #B0BEC5;
+      line-height: 1.4;
+    }
+    .repo-box {
+      background: rgba(179, 136, 255, 0.08);
+      border: 2px solid rgba(179, 136, 255, 0.5);
+      border-radius: 10px;
+      padding: 18px 40px;
+      margin-top: 20px;
+      box-shadow: 0 0 20px rgba(179, 136, 255, 0.25);
+    }
+    .repo-url {
+      font-size: 1.4rem;
+      color: #00D4FF;
+      font-weight: bold;
+    }
+    .tagline {
+      margin-top: 25px;
+      font-size: 1.1rem;
+      color: #B388FF;
+      font-style: italic;
+    }
+    .footer-en {
+      margin-top: 10px;
+      font-size: 0.75rem;
+      color: rgba(176, 190, 197, 0.7);
+      letter-spacing: 1px;
+      font-style: italic;
+    }
+    .charts-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 25px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+    .chart-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .chart-title {
+      font-size: 0.9rem;
+      color: #B388FF;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .bar-chart {
+      display: flex;
+      align-items: flex-end;
+      gap: 12px;
+      height: 160px;
+      padding: 10px;
+      background: rgba(0, 212, 255, 0.04);
+      border-radius: 10px;
+      border: 1px solid rgba(0, 212, 255, 0.3);
+    }
+    .bar-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .bar {
+      width: 45px;
+      background: linear-gradient(180deg, #00D4FF, rgba(0, 212, 255, 0.6));
+      border-radius: 6px 6px 0 0;
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+      position: relative;
+      transition: all 0.3s;
+    }
+    .bar.highlight {
+      background: linear-gradient(180deg, #B388FF, rgba(179, 136, 255, 0.6));
+      box-shadow: 0 0 18px rgba(179, 136, 255, 0.5);
+    }
+    .bar-label {
+      font-size: 0.65rem;
+      color: #B0BEC5;
+      text-align: center;
+      width: 55px;
+      line-height: 1.2;
+    }
+    .bar-label-en {
+      font-size: 0.55rem;
+      opacity: 0.7;
+      letter-spacing: 0.3px;
+      font-style: italic;
+      color: rgba(176, 190, 197, 0.7);
+    }
+    .bar-value {
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.75rem;
+      color: #00D4FF;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+    .bar.highlight .bar-value { color: #B388FF; }
+    .pie-chart-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .pie-chart {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: conic-gradient(
+        #00D4FF 0deg 75.6deg,
+        #B388FF 75.6deg 169.2deg,
+        #4DD0E1 169.2deg 244.8deg,
+        #7C4DFF 244.8deg 320.4deg,
+        #18FFFF 320.4deg 360deg
+      );
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+      position: relative;
+    }
+    .pie-chart::after {
+      content: '';
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      background: #1A1A2E;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .pie-legend {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.7rem;
+      color: #B0BEC5;
+    }
+    .legend-color {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .radar-container {
+      position: relative;
+      width: 160px;
+      height: 160px;
+    }
+    .radar-svg {
+      width: 100%;
+      height: 100%;
+    }
+    .radar-label {
+      position: absolute;
+      font-size: 0.7rem;
+      color: #E0E0E0;
+      font-weight: 500;
+    }
+    .radar-label-en {
+      font-size: 0.55rem;
+      opacity: 0.7;
+      letter-spacing: 0.3px;
+      font-style: italic;
+      color: rgba(224, 224, 224, 0.6);
+    }
+    .nav {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      display: flex;
+      gap: 12px;
+      z-index: 100;
+    }
+    .nav button {
+      background: rgba(0, 212, 255, 0.15);
+      border: 2px solid rgba(0, 212, 255, 0.5);
+      color: #00D4FF;
+      padding: 8px 18px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-family: inherit;
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+      transition: all 0.3s;
+      border-radius: 6px;
+    }
+    .nav button:hover {
+      background: rgba(0, 212, 255, 0.25);
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+      border-color: #00D4FF;
+    }
+    .progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #00D4FF, #B388FF);
+      transition: width 0.3s;
+      box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+      z-index: 100;
+    }
+    .page-num {
+      position: fixed;
+      bottom: 25px;
+      left: 25px;
+      font-size: 0.85rem;
+      color: #B0BEC5;
+      z-index: 100;
+    }
+  </style>
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+  <div class="page-num" id="pageNum">1 / 9</div>
+
+  <!-- Slide 1: 封面 -->
+  <div class="slide active">
+    <h1>🎩 黑客松路演魔术师</h1>
+    <div class="en">Hackathon Roadshow Magician</div>
+    <p>把任意成果源代码<span class="highlight">一键转换</span>为竞赛级路演材料</p>
+    <div class="stats">
+      <div class="stat-box">
+        <div class="stat-number">7</div>
+        <div class="stat-label">步工作流 <span class="en" style="font-size:0.7em">Steps</span></div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">19</div>
+        <div class="stat-label">种产物 <span class="en" style="font-size:0.7em">Deliverables</span></div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">6</div>
+        <div class="stat-label">维版本 <span class="en" style="font-size:0.7em">Dimensions</span></div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">4+1</div>
+        <div class="stat-label">种风格 <span class="en" style="font-size:0.7em">Styles</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 2: 痛点 -->
+  <div class="slide">
+    <h2>99%的黑客松团队被路演拖后腿</h2>
+    <div class="en">99% Teams Suffer from Poor Pitch Prep</div>
+    <div style="display: flex; gap: 35px; margin-top: 25px; justify-content: center;">
+      <div class="stat-box" style="padding: 22px 30px;">
+        <div class="stat-number" style="font-size: 2.2rem;">⏰</div>
+        <div class="stat-label" style="margin-top: 8px;">DEMO做得好</div>
+        <div class="stat-label">但路演材料耗时过长</div>
+      </div>
+      <div class="stat-box" style="padding: 22px 30px;">
+        <div class="stat-number" style="font-size: 2.2rem;">💸</div>
+        <div class="stat-label" style="margin-top: 8px;">浪费时间</div>
+        <div class="stat-label">本该用于完善产品</div>
+      </div>
+    </div>
+    <p style="margin-top: 30px; color: #B388FF; font-size: 1.3rem;">⚡ 工程化生成，不浪费时间在排版和措辞上</p>
+  </div>
+
+  <!-- Slide 3: 7步工作流 -->
+  <div class="slide">
+    <h2>7步工作流 · 5个确认点</h2>
+    <div class="en">7-Step Workflow · 5 Checkpoints</div>
+    <div class="flow-h">
+      <div class="flow-node">
+        <div class="flow-step-num">S1</div>
+        <div class="flow-step-title">🔍 源码分析</div>
+        <div class="flow-step-title-en">Source Analysis</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node cp">
+        <div class="cp-badge">✓1</div>
+        <div class="flow-step-num">S2</div>
+        <div class="flow-step-title">✅ 信息核对</div>
+        <div class="flow-step-title-en">Info Verification</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node cp">
+        <div class="cp-badge">✓2</div>
+        <div class="flow-step-num">S3</div>
+        <div class="flow-step-title">🎯 路演定类</div>
+        <div class="flow-step-title-en">Pitch Type</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node cp">
+        <div class="cp-badge">✓3</div>
+        <div class="flow-step-num">S4</div>
+        <div class="flow-step-title">📋 大纲构建</div>
+        <div class="flow-step-title-en">Outline</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node cp">
+        <div class="cp-badge">✓4</div>
+        <div class="flow-step-num">S5</div>
+        <div class="flow-step-title">📊 图表生成</div>
+        <div class="flow-step-title-en">Charts</div>
+      </div>
+    </div>
+    <div class="flow-h" style="margin-top: 12px;">
+      <div class="flow-node cp">
+        <div class="cp-badge">✓5</div>
+        <div class="flow-step-num">S6</div>
+        <div class="flow-step-title">📦 成果生成</div>
+        <div class="flow-step-title-en">Generate</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node">
+        <div class="flow-step-num">S7</div>
+        <div class="flow-step-title">🚀 交付收尾</div>
+        <div class="flow-step-title-en">Deliver</div>
+      </div>
+    </div>
+    <p style="margin-top: 25px; color: #B388FF;">每步有明确产出 + 确认点，避免方向跑偏返工</p>
+  </div>
+
+  <!-- Slide 4: 数据效果对比（新增页面） -->
+  <div class="slide">
+    <h2>📊 数据效果对比</h2>
+    <div class="en">Data Comparison</div>
+    <div class="charts-container">
+      <div class="chart-section">
+        <div class="chart-title">⏱️ 耗时对比</div>
+        <div class="bar-chart">
+          <div class="bar-item">
+            <div class="bar" style="height: 130px;">
+              <span class="bar-value">4h</span>
+            </div>
+            <div class="bar-label">传统PPT制作</div>
+            <div class="bar-label-en">Traditional PPT</div>
+          </div>
+          <div class="bar-item">
+            <div class="bar" style="height: 65px;">
+              <span class="bar-value">2h</span>
+            </div>
+            <div class="bar-label">排版美化</div>
+            <div class="bar-label-en">Formatting</div>
+          </div>
+          <div class="bar-item">
+            <div class="bar" style="height: 97px;">
+              <span class="bar-value">3h</span>
+            </div>
+            <div class="bar-label">措辞打磨</div>
+            <div class="bar-label-en">Wording</div>
+          </div>
+          <div class="bar-item">
+            <div class="bar highlight" style="height: 20px;">
+              <span class="bar-value">&lt;10min</span>
+            </div>
+            <div class="bar-label">本工具</div>
+            <div class="bar-label-en">This Tool</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chart-section">
+        <div class="chart-title">📦 19种产物分布</div>
+        <div class="pie-chart-container">
+          <div class="pie-chart"></div>
+          <div class="pie-legend">
+            <div class="legend-item">
+              <div class="legend-color" style="background: #00D4FF;"></div>
+              <span>赛前提报 21% <span class="en" style="font-size:0.8em">(Pre-Event)</span></span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-color" style="background: #B388FF;"></div>
+              <span>现场展示 26% <span class="en" style="font-size:0.8em">(On-Site)</span></span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-color" style="background: #4DD0E1;"></div>
+              <span>评委互动 21% <span class="en" style="font-size:0.8em">(Q&amp;A)</span></span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-color" style="background: #7C4DFF;"></div>
+              <span>赛后传播 21% <span class="en" style="font-size:0.8em">(Post-Event)</span></span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-color" style="background: #18FFFF;"></div>
+              <span>存档 11% <span class="en" style="font-size:0.8em">(Archive)</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chart-section">
+        <div class="chart-title">🎯 6维能力评估</div>
+        <div class="radar-container">
+          <svg class="radar-svg" viewBox="0 0 160 160">
+            <polygon points="80,15 140,47 140,113 80,145 20,113 20,47" fill="none" stroke="rgba(0,212,255,0.2)" stroke-width="1"/>
+            <polygon points="80,31 124,55 124,105 80,129 36,105 36,55" fill="none" stroke="rgba(0,212,255,0.2)" stroke-width="1"/>
+            <polygon points="80,47 108,63 108,97 80,113 52,97 52,63" fill="none" stroke="rgba(0,212,255,0.2)" stroke-width="1"/>
+            <polygon points="80,63 92,71 92,89 80,97 68,89 68,71" fill="none" stroke="rgba(0,212,255,0.2)" stroke-width="1"/>
+            <line x1="80" y1="15" x2="80" y2="145" stroke="rgba(0,212,255,0.2)" stroke-width="1"/>
+            <line x1="20" y1="47" x2="140" y2="113" stroke="rgba(0,212,255,0.2)" stroke-width="1"/>
+            <line x1="140" y1="47" x2="20" y2="113" stroke="rgba(0,212,255,0.2)" stroke-width="1"/>
+            <polygon points="80,18 136,50 132,110 80,140 28,108 24,52" fill="rgba(0,212,255,0.25)" stroke="#00D4FF" stroke-width="2"/>
+            <polygon points="80,18 136,50 132,110 80,140 28,108 24,52" fill="none" stroke="#B388FF" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>
+            <circle cx="80" cy="18" r="3" fill="#B388FF"/>
+            <circle cx="136" cy="50" r="3" fill="#B388FF"/>
+            <circle cx="132" cy="110" r="3" fill="#B388FF"/>
+            <circle cx="80" cy="140" r="3" fill="#B388FF"/>
+            <circle cx="28" cy="108" r="3" fill="#B388FF"/>
+            <circle cx="24" cy="52" r="3" fill="#B388FF"/>
+          </svg>
+          <div class="radar-label" style="top: 0; left: 50%; transform: translateX(-50%);">速度<div class="radar-label-en">Speed</div></div>
+          <div class="radar-label" style="top: 20px; right: -5px;">完整度<div class="radar-label-en">Completeness</div></div>
+          <div class="radar-label" style="bottom: 20px; right: -5px;">专业度<div class="radar-label-en">Professional</div></div>
+          <div class="radar-label" style="bottom: 0; left: 50%; transform: translateX(-50%);">稳定性<div class="radar-label-en">Stability</div></div>
+          <div class="radar-label" style="bottom: 20px; left: -5px;">定制性<div class="radar-label-en">Custom</div></div>
+          <div class="radar-label" style="top: 20px; left: -5px;">开源度<div class="radar-label-en">Open Source</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 5: 四层架构 -->
+  <div class="slide">
+    <h2>🏗️ 四层架构设计</h2>
+    <div class="en">4-Layer Architecture</div>
+    <div class="arch-stack">
+      <div class="arch-layer">
+        <div class="layer-icon">🎪</div>
+        <div class="layer-title">场景层<span class="layer-title-en">Scenario Layer</span></div>
+        <div class="layer-content">8类路演全覆盖：竞赛/投资/答辩/推广/电梯/展位/讲课/对接</div>
+      </div>
+      <div class="arch-layer">
+        <div class="layer-icon">📐</div>
+        <div class="layer-title">SOP层<span class="layer-title-en">SOP Layer</span></div>
+        <div class="layer-content">7步工作流 · 5个确认点 · 交互驱动</div>
+      </div>
+      <div class="arch-layer">
+        <div class="layer-icon">🛠️</div>
+        <div class="layer-title">工具层<span class="layer-title-en">Tool Layer</span></div>
+        <div class="layer-content">三级工具链：主工具 → 备用开源 → 降级方案</div>
+      </div>
+      <div class="arch-layer">
+        <div class="layer-icon">📦</div>
+        <div class="layer-title">产物层<span class="layer-title-en">Deliverable Layer</span></div>
+        <div class="layer-content">5环节 · 19种产物 · 按需生成</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 6: 六维版本矩阵 -->
+  <div class="slide">
+    <h2>🎛️ 六维版本矩阵</h2>
+    <div class="en">6-Dimension Version Matrix</div>
+    <div class="matrix-grid">
+      <div class="dim-card">
+        <div class="dim-icon">⏱️</div>
+        <div class="dim-name">时长<span class="dim-name-en">Duration</span></div>
+        <div class="dim-values">15min/8min/5min/30s<br><span style="opacity:0.7">语速200字/分钟</span></div>
+      </div>
+      <div class="dim-card">
+        <div class="dim-icon">🎯</div>
+        <div class="dim-name">侧重<span class="dim-name-en">Focus</span></div>
+        <div class="dim-values">技术/商业/产品/社会<br><span style="opacity:0.7">评委偏好不同</span></div>
+      </div>
+      <div class="dim-card">
+        <div class="dim-icon">🎨</div>
+        <div class="dim-name">风格<span class="dim-name-en">Style</span></div>
+        <div class="dim-values">数据/故事/极简<br><span style="opacity:0.7">表达风格不同</span></div>
+      </div>
+      <div class="dim-card">
+        <div class="dim-icon">📄</div>
+        <div class="dim-name">格式<span class="dim-name-en">Format</span></div>
+        <div class="dim-values">HTML/PDF/讲稿/一页纸<br><span style="opacity:0.7">提交需求不同</span></div>
+      </div>
+      <div class="dim-card">
+        <div class="dim-icon">🌐</div>
+        <div class="dim-name">语言<span class="dim-name-en">Language</span></div>
+        <div class="dim-values">中文/英文/双语<br><span style="opacity:0.7">国际赛事</span></div>
+      </div>
+      <div class="dim-card">
+        <div class="dim-icon">👥</div>
+        <div class="dim-name">团队<span class="dim-name-en">Team</span></div>
+        <div class="dim-values">单人/双人/分工<br><span style="opacity:0.7">团队路演</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 7: 19种产物 -->
+  <div class="slide">
+    <h2>📦 19种产物 · 5环节覆盖</h2>
+    <div class="en">19 Deliverables · 5 Stages</div>
+    <div class="products-ring">
+      <div class="product-group">
+        <div class="product-count">4</div>
+        <div class="product-stage">📋 赛前提报</div>
+        <div class="product-stage-en">Pre-Event</div>
+        <div class="product-items">报名表/简介/一句话/声明</div>
+      </div>
+      <div class="product-group" style="border-color: rgba(179,136,255,0.6); background: rgba(179,136,255,0.1);">
+        <div class="product-count">5</div>
+        <div class="product-stage">🎤 现场展示</div>
+        <div class="product-stage-en">On-Site</div>
+        <div class="product-items">HTML/PPT/腹稿/图表/清单</div>
+      </div>
+      <div class="product-group">
+        <div class="product-count">4</div>
+        <div class="product-stage">❓ 评委互动</div>
+        <div class="product-stage-en">Q&amp;A</div>
+        <div class="product-items">问答/备忘录/FAQ/红线卡</div>
+      </div>
+      <div class="product-group">
+        <div class="product-count">4</div>
+        <div class="product-stage">📣 赛后传播</div>
+        <div class="product-stage-en">Post-Event</div>
+        <div class="product-items">海报/社媒/README/短视频</div>
+      </div>
+      <div class="product-group">
+        <div class="product-count">2</div>
+        <div class="product-stage">💾 存档复用</div>
+        <div class="product-stage-en">Archive</div>
+        <div class="product-items">档案JSON/素材包ZIP</div>
+      </div>
+    </div>
+    <p style="margin-top: 20px; color: #B388FF;">✅ 用户只需勾选，不浪费算力</p>
+  </div>
+
+  <!-- Slide 8: 三级工具链 -->
+  <div class="slide">
+    <h2>🛡️ 三级工具链 · 稳定输出</h2>
+    <div class="en">3-Tier Toolchain · Stable Output</div>
+    <div class="toolchain-flow">
+      <div class="tool-col">
+        <div class="tool-tier primary">
+          <div class="tool-label">🔍 代码搜索</div>
+          <div class="tool-name">SearchCodebase</div>
+        </div>
+        <div class="tool-tier primary">
+          <div class="tool-label">📊 图表生成</div>
+          <div class="tool-name">内置CSS图表</div>
+        </div>
+        <div class="tool-tier primary">
+          <div class="tool-label">📝 文件写入</div>
+          <div class="tool-name">Write</div>
+        </div>
+        <div class="tool-tier primary">
+          <div class="tool-label">🧪 渲染测试</div>
+          <div class="tool-name">RunCommand</div>
+        </div>
+      </div>
+      <div class="tool-arrow-h">→</div>
+      <div class="tool-col">
+        <div class="tool-tier">
+          <div class="tool-label">备用</div>
+          <div class="tool-name">ast-grep</div>
+        </div>
+        <div class="tool-tier">
+          <div class="tool-label">备用</div>
+          <div class="tool-name">Chart.js/SVG</div>
+        </div>
+        <div class="tool-tier">
+          <div class="tool-label">备用</div>
+          <div class="tool-name">SearchReplace</div>
+        </div>
+        <div class="tool-tier">
+          <div class="tool-label">备用</div>
+          <div class="tool-name">Grep验证</div>
+        </div>
+      </div>
+      <div class="tool-arrow-h">→</div>
+      <div class="tool-col">
+        <div class="tool-tier" style="border-color: rgba(179,136,255,0.5);">
+          <div class="tool-label" style="color:#B388FF;">降级</div>
+          <div class="tool-name">Grep+Glob</div>
+        </div>
+        <div class="tool-tier" style="border-color: rgba(179,136,255,0.5);">
+          <div class="tool-label" style="color:#B388FF;">降级</div>
+          <div class="tool-name">纯CSS手绘</div>
+        </div>
+        <div class="tool-tier" style="border-color: rgba(179,136,255,0.5);">
+          <div class="tool-label" style="color:#B388FF;">降级</div>
+          <div class="tool-name">echo</div>
+        </div>
+        <div class="tool-tier" style="border-color: rgba(179,136,255,0.5);">
+          <div class="tool-label" style="color:#B388FF;">降级</div>
+          <div class="tool-name">人工检查</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 9: 核心优势 + 开源 -->
+  <div class="slide">
+    <h2>⚡ 核心优势</h2>
+    <div class="en">Core Advantages</div>
+    <div class="advantages-grid">
+      <div class="adv-card">
+        <div class="adv-icon">🔒</div>
+        <div>
+          <div class="adv-title">完全本地运行<span class="adv-title-en">Local First</span></div>
+          <div class="adv-desc">绝不联网、绝不外传</div>
+        </div>
+      </div>
+      <div class="adv-card">
+        <div class="adv-icon">✅</div>
+        <div>
+          <div class="adv-title">5个确认点<span class="adv-title-en">5 Checkpoints</span></div>
+          <div class="adv-desc">不替用户决定</div>
+        </div>
+      </div>
+      <div class="adv-card">
+        <div class="adv-icon">📊</div>
+        <div>
+          <div class="adv-title">数据铁律<span class="adv-title-en">Data Discipline</span></div>
+          <div class="adv-desc">所有数字标注来源</div>
+        </div>
+      </div>
+      <div class="adv-card">
+        <div class="adv-icon">🛡️</div>
+        <div>
+          <div class="adv-title">三级降级<span class="adv-title-en">3-Tier Fallback</span></div>
+          <div class="adv-desc">确保稳定输出</div>
+        </div>
+      </div>
+    </div>
+    <div class="repo-box">
+      <p style="margin-bottom: 8px; color: #B0BEC5;">MIT协议 · 欢迎 Star · Issue · PR</p>
+      <div class="repo-url">gitee.com/firecangshu/hackathon-roadshow-magician</div>
+    </div>
+    <div class="tagline">同一个项目，同一套代码，不同的表达。这不是魔法，是工程化。</div>
+    <div class="footer-en">Open Source · MIT License · Star · Issue · PR Welcome</div>
+  </div>
+
+  <div class="nav">
+    <button onclick="prevSlide()">← 上一页</button>
+    <button onclick="nextSlide()">下一页 →</button>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+
+    function showSlide(n) {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (n + totalSlides) % totalSlides;
+      slides[currentSlide].classList.add('active');
+      document.getElementById('pageNum').textContent = (currentSlide + 1) + ' / ' + totalSlides;
+      document.getElementById('progress').style.width = ((currentSlide + 1) / totalSlides * 100) + '%';
+    }
+
+    function nextSlide() { showSlide(currentSlide + 1); }
+    function prevSlide() { showSlide(currentSlide - 1); }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+      if (e.key === 'ArrowLeft') prevSlide();
+    });
+
+    showSlide(0);
+  </script>
+</body>
+</html>

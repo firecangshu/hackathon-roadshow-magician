@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎩 黑客松路演魔术师 · Style Gallery 风格合集</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0D0D0D;
+      color: #E0E0E0;
+      padding: 40px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 5px;
+      background: linear-gradient(90deg, #00D4FF, #FF00FF, #FF6B35, #FF6B6B);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .h1-en {
+      text-align: center;
+      font-size: 1rem;
+      color: #666;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      text-align: center;
+      color: #888;
+      margin-bottom: 8px;
+      font-size: 1.1rem;
+    }
+    .subtitle-en {
+      text-align: center;
+      color: #555;
+      margin-bottom: 50px;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .style-card {
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.4s;
+      cursor: pointer;
+      position: relative;
+    }
+    .style-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      z-index: 10;
+    }
+    .style-preview {
+      height: 340px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+    .style-info {
+      padding: 25px;
+      background: #1A1A1A;
+    }
+    .style-name {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+    .style-name-en {
+      font-size: 0.75rem;
+      opacity: 0.5;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .style-desc {
+      color: #999;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+    .style-desc-en {
+      color: #666;
+      font-size: 0.8rem;
+      line-height: 1.5;
+      margin-bottom: 15px;
+      font-style: italic;
+    }
+    .style-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .tag {
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+    .tag-en {
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      opacity: 0.7;
+      letter-spacing: 0.5px;
+    }
+    .open-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s;
+      border: 2px solid;
+    }
+    .open-btn:hover {
+      transform: scale(1.05);
+    }
+
+    /* 暗色科技风 */
+    .card-dark-tech .style-preview { background: #1A1A2E; }
+    .card-dark-tech .style-name { color: #00D4FF; }
+    .card-dark-tech .style-name-en { color: #00D4FF; }
+    .card-dark-tech .tag { background: rgba(0,212,255,0.15); color: #00D4FF; }
+    .card-dark-tech .tag-en { background: rgba(0,212,255,0.08); color: rgba(0,212,255,0.7); }
+    .card-dark-tech .open-btn { background: rgba(0,212,255,0.15); border-color: #00D4FF; color: #00D4FF; }
+    .card-dark-tech .open-btn:hover { background: rgba(0,212,255,0.3); box-shadow: 0 0 30px rgba(0,212,255,0.5); }
+
+    /* 工业风 */
+    .card-industrial .style-preview { background: #2C2C2C; border: 3px solid #FF6B35; border-radius: 0; }
+    .card-industrial .style-name { color: #FF6B35; }
+    .card-industrial .style-name-en { color: #FF6B35; }
+    .card-industrial .tag { background: rgba(255,107,53,0.15); color: #FF6B35; }
+    .card-industrial .tag-en { background: rgba(255,107,53,0.08); color: rgba(255,107,53,0.7); }
+    .card-industrial .open-btn { background: rgba(255,107,53,0.15); border-color: #FF6B35; color: #FF6B35; border-radius: 0; }
+    .card-industrial .open-btn:hover { background: rgba(255,107,53,0.3); box-shadow: 4px 4px 0 #FF6B35; }
+
+    /* 卡通风 */
+    .card-cartoon .style-preview { background: #FFF8E7; }
+    .card-cartoon .style-name { color: #FF6B6B; }
+    .card-cartoon .style-name-en { color: #FF6B6B; }
+    .card-cartoon .tag { background: rgba(255,107,107,0.15); color: #FF6B6B; }
+    .card-cartoon .tag-en { background: rgba(255,107,107,0.08); color: rgba(255,107,107,0.7); }
+    .card-cartoon .open-btn { background: rgba(255,107,107,0.15); border-color: #FF6B6B; color: #FF6B6B; }
+    .card-cartoon .open-btn:hover { background: rgba(255,107,107,0.3); box-shadow: 0 5px 20px rgba(255,107,107,0.4); transform: scale(1.05) rotate(-2deg); }
+
+    /* 赛博朋克风 */
+    .card-cyberpunk .style-preview { background: #0D0D0D; }
+    .card-cyberpunk .style-name { color: #FF00FF; }
+    .card-cyberpunk .style-name-en { color: #FF00FF; text-shadow: 0 0 8px #FF00FF; }
+    .card-cyberpunk .tag { background: rgba(255,0,255,0.15); color: #FF00FF; }
+    .card-cyberpunk .tag-en { background: rgba(255,0,255,0.08); color: rgba(255,0,255,0.7); }
+    .card-cyberpunk .open-btn { background: rgba(255,0,255,0.15); border-color: #FF00FF; color: #FF00FF; }
+    .card-cyberpunk .open-btn:hover { background: rgba(255,0,255,0.3); box-shadow: 0 0 30px rgba(255,0,255,0.6); }
+
+    /* 预览区mini内容 */
+    .mini-stats { display: flex; gap: 15px; margin-top: 20px; }
+    .mini-stat { text-align: center; padding: 10px 15px; border-radius: 8px; }
+    .mini-num { font-size: 1.8rem; font-weight: bold; }
+    .mini-label { font-size: 0.75rem; margin-top: 3px; }
+    .mini-label-en { font-size: 0.6rem; opacity: 0.6; margin-top: 1px; letter-spacing: 0.5px; text-transform: uppercase; }
+    .mini-title { font-size: 1.8rem; font-weight: bold; margin-bottom: 4px; }
+    .mini-title-en { font-size: 0.7rem; opacity: 0.5; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+    .mini-desc { font-size: 0.85rem; }
+    .mini-flow { display: flex; gap: 5px; margin-top: 15px; align-items: center; flex-wrap: wrap; justify-content: center; }
+    .mini-node { padding: 6px 10px; border-radius: 6px; font-size: 0.7rem; border: 1.5px solid; text-align: center; }
+    .mini-node-en { font-size: 0.55rem; opacity: 0.7; margin-top: 1px; letter-spacing: 0.5px; }
+    .mini-arrow { font-size: 1rem; }
+
+    /* 暗色科技风mini */
+    .dark-t .mini-title { color: #00D4FF; text-shadow: 0 0 15px rgba(0,212,255,0.5); }
+    .dark-t .mini-title-en { color: #00D4FF; }
+    .dark-t .mini-desc { color: #B0BEC5; }
+    .dark-t .mini-stat { background: rgba(0,212,255,0.1); border: 1px solid #00D4FF; }
+    .dark-t .mini-num { color: #00D4FF; }
+    .dark-t .mini-label { color: #B0BEC5; }
+    .dark-t .mini-label-en { color: rgba(176,190,197,0.6); }
+    .dark-t .mini-node { border-color: #B388FF; color: #00D4FF; background: rgba(179,136,255,0.1); }
+    .dark-t .mini-node-en { color: rgba(0,212,255,0.6); }
+    .dark-t .mini-arrow { color: #00D4FF; }
+
+    /* 工业风mini */
+    .ind-t .mini-title { color: #FF6B35; }
+    .ind-t .mini-title-en { color: #FF6B35; letter-spacing: 3px; }
+    .ind-t .mini-desc { color: #BDBDBD; }
+    .ind-t .mini-stat { background: rgba(255,107,53,0.1); border: 2px solid #FF6B35; border-radius: 0; }
+    .ind-t .mini-num { color: #FF6B35; }
+    .ind-t .mini-label { color: #BDBDBD; }
+    .ind-t .mini-label-en { color: rgba(189,189,189,0.6); text-transform: uppercase; }
+    .ind-t .mini-node { border-color: #FF6B35; color: #FF6B35; background: rgba(255,107,53,0.1); border-radius: 0; border-width: 2px; }
+    .ind-t .mini-node-en { color: rgba(255,107,53,0.6); }
+    .ind-t .mini-arrow { color: #FF6B35; }
+
+    /* 卡通风mini */
+    .car-t .mini-title { color: #FF6B6B; }
+    .car-t .mini-title-en { color: #FF6B6B; }
+    .car-t .mini-desc { color: #666; }
+    .car-t .mini-stat { background: #FFE66D; border-radius: 12px; }
+    .car-t .mini-num { color: #FF6B6B; }
+    .car-t .mini-label { color: #666; }
+    .car-t .mini-label-en { color: rgba(102,102,102,0.6); }
+    .car-t .mini-node { border-color: #4ECDC4; color: #FF6B6B; background: white; border-radius: 20px; border-width: 2px; }
+    .car-t .mini-node-en { color: rgba(255,107,107,0.6); }
+    .car-t .mini-arrow { color: #FF6B6B; }
+
+    /* 赛博朋克mini */
+    .cyb-t .mini-title { color: #FF00FF; text-shadow: 0 0 15px #FF00FF; }
+    .cyb-t .mini-title-en { color: #FF00FF; text-shadow: 0 0 8px #FF00FF; font-family: 'Courier New', monospace; }
+    .cyb-t .mini-desc { color: #00FFFF; }
+    .cyb-t .mini-stat { background: rgba(255,0,255,0.1); border: 2px solid #FF00FF; }
+    .cyb-t .mini-num { color: #FF00FF; text-shadow: 0 0 10px #FF00FF; }
+    .cyb-t .mini-label { color: #00FFFF; }
+    .cyb-t .mini-label-en { color: rgba(0,255,255,0.6); font-family: 'Courier New', monospace; text-transform: uppercase; }
+    .cyb-t .mini-node { border-color: #00FFFF; color: #FF00FF; background: rgba(0,255,255,0.05); font-family: 'Courier New', monospace; }
+    .cyb-t .mini-node-en { color: rgba(0,255,255,0.5); font-family: 'Courier New', monospace; }
+    .cyb-t .mini-arrow { color: #FF00FF; text-shadow: 0 0 8px #FF00FF; }
+
+    .footer {
+      text-align: center;
+      margin-top: 60px;
+      color: #555;
+      font-size: 0.9rem;
+    }
+    .footer-en {
+      text-align: center;
+      color: #444;
+      font-size: 0.75rem;
+      margin-top: 5px;
+      letter-spacing: 1px;
+    }
+    .footer a { color: #00D4FF; text-decoration: none; }
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <h1>🎩 黑客松路演魔术师</h1>
+  <div class="h1-en">Hackathon Roadshow Magician</div>
+  <p class="subtitle">四套固定风格 · 数据可视化增强版 · 点击卡片打开完整路演</p>
+  <p class="subtitle-en">4 Built-in Styles · Data Visualization Enhanced · Click Card to Open Full Pitch Deck</p>
+
+  <div class="grid">
+    <!-- 暗色科技风 -->
+    <div class="style-card card-dark-tech" onclick="window.open('黑客松路演魔术师_暗色科技风_5min_完整版.html','_blank')">
+      <div class="style-preview dark-t">
+        <div class="mini-title">🔷 暗色科技风</div>
+        <div class="mini-title-en">Dark Tech</div>
+        <div class="mini-desc">技术类项目 · 开发者工具</div>
+        <div class="mini-desc" style="font-size:0.7rem;opacity:0.6;margin-top:2px">Tech Projects · Developer Tools</div>
+        <div class="mini-stats">
+          <div class="mini-stat">
+            <div class="mini-num">7</div>
+            <div class="mini-label">步工作流</div>
+            <div class="mini-label-en">Steps</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-num">19</div>
+            <div class="mini-label">种产物</div>
+            <div class="mini-label-en">Deliverables</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-num">📊</div>
+            <div class="mini-label">含数据图表</div>
+            <div class="mini-label-en">Charts</div>
+          </div>
+        </div>
+        <div class="mini-flow">
+          <div class="mini-node"><div>🔍分析</div><div class="mini-node-en">SCAN</div></div>
+          <div class="mini-arrow">→</div>
+          <div class="mini-node"><div>✅核对</div><div class="mini-node-en">VERIFY</div></div>
+          <div class="mini-arrow">→</div>
+          <div class="mini-node"><div>📊图表</div><div class="mini-node-en">CHARTS</div></div>
+          <div class="mini-arrow">→</div>
+          <div class="mini-node"><div>🚀交付</div><div class="mini-node-en">DELIVER</div></div>
+        </div>
+      </div>
+      <div class="style-info">
+        <div class="style-name">🔷 暗色科技风</div>
+        <div class="style-name-en">Dark Tech Style</div>
+        <div class="style-desc">深邃暗蓝背景 + 科技青蓝主色 + 紫色点缀，现代精致的科技感发光阴影。技术类项目、黑客松、开发者工具首选。</div>
+        <div class="style-desc-en">Deep dark blue background with cyan glow and purple accents. Perfect for tech projects, hackathons and developer tools.</div>
+        <div class="style-tags">
+          <span class="tag">柱状图</span><span class="tag-en">Bar Chart</span>
+          <span class="tag">饼图</span><span class="tag-en">Pie Chart</span>
+          <span class="tag">雷达图</span><span class="tag-en">Radar</span>
+          <span class="tag">科技感</span><span class="tag-en">Tech</span>
+          <span class="tag">发光阴影</span><span class="tag-en">Glow</span>
+        </div>
+        <a href="黑客松路演魔术师_暗色科技风_5min_完整版.html" target="_blank" class="open-btn" onclick="event.stopPropagation()">打开完整路演 Open →</a>
+      </div>
+    </div>
+
+    <!-- 工业风 -->
+    <div class="style-card card-industrial" onclick="window.open('黑客松路演魔术师_工业风_5min_完整版.html','_blank')">
+      <div class="style-preview ind-t">
+        <div class="mini-title">⚙️ 工业风</div>
+        <div class="mini-title-en">Industrial</div>
+        <div class="mini-desc">硬件项目 · 工业4.0 · 制造业</div>
+        <div class="mini-desc" style="font-size:0.7rem;opacity:0.6;margin-top:2px">Hardware · Industry 4.0 · Manufacturing</div>
+        <div class="mini-stats">
+          <div class="mini-stat">
+            <div class="mini-num">95%</div>
+            <div class="mini-label">效率提升</div>
+            <div class="mini-label-en">Efficiency</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-num">100%</div>
+            <div class="mini-label">产物覆盖</div>
+            <div class="mini-label-en">Coverage</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-num">⚙️</div>
+            <div class="mini-label">金属质感</div>
+            <div class="mini-label-en">Metal</div>
+          </div>
+        </div>
+        <div class="mini-flow">
+          <div class="mini-node"><div>🔍分析</div><div class="mini-node-en">SCAN</div></div>
+          <div class="mini-arrow">→</div>
+          <div class="mini-node"><div>✅核对</div><div class="mini-node-en">VERIFY</div></div>
+          <div class="mini-arrow">→</div>
+          <div class="mini-node"><div>📊图表</div><div class="mini-node-en">CHARTS</div></div>
+          <div class="mini-arrow">→</div>
+          <div class="mini-node"><div>🚀交付</div><div class="mini-node-en">SHIP</div></div>
+        </div>
+      </div>
+      <div class="style-info">
+        <div class="style-name">⚙️ 工业风</div>
+        <div class="style-name-en">Industrial Style</div>
+        <div class="style-desc">深灰背景 + 工业橙主色 + 金属灰，硬朗直角边框 + 铆钉齿轮装饰 + 金属质感渐变。硬件、制造业、工业项目首选。</div>
+        <div class="style-desc-en">Dark gray with industrial orange, rivets and gears. Bold right angles with metallic texture. Ideal for hardware and manufacturing.</div>
+        <div class="style-tags">
+          <span class="tag">金属柱状图</span><span class="tag-en">Metal Bars</span>
+          <span class="tag">环形进度</span><span class="tag-en">Ring Progress</span>
+          <span class="tag">对比条形图</span><span class="tag-en">Bar Compare</span>
+          <span class="tag">铆钉装饰</span><span class="tag-en">Rivets</span>
+          <span class="tag">等宽字体</span><span class="tag-en">Mono</span>
+        </div>
+        <a href="黑客松路演魔术师_工业风_5min_完整版.html" target="_blank" class="open-btn" onclick="event.stopPropagation()">打开完整路演 OPEN →</a>
+      </div>
+    </div>
+
+    <!-- 卡通风 -->
+    <div class="style-card card-cartoon" onclick="window.open('黑客松路演魔术师_卡通风_5min_完整版.html','_blank')">
+      <div class="style-preview car-t">
+        <div class="mini-title">🎨 卡通风</div>
+        <div class="mini-title-en">Cartoon</div>
+        <div class="mini-desc">教育类 · 儿童产品 · 轻松场景</div>
+        <div class="mini-desc" style="font-size:0.7rem;opacity:0.6;margin-top:2px">Education · Kids · Fun Scenarios</div>
+        <div class="mini-stats">
+          <div class="mini-stat">
+            <div class="mini-num">🎉</div>
+            <div class="mini-label">可爱有趣</div>
+            <div class="mini-label-en">Fun</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-num">✨</div>
+            <div class="mini-label">糖果配色</div>
+            <div class="mini-label-en">Candy</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-num">📊</div>
+            <div class="mini-label">萌系图表</div>
+            <div class="mini-label-en">Cute Charts</div>
+          </div>
+        </div>
+        <div class="mini-flow">
+          <div class="mini-node"><div>🔍分析</div><div class="mini-node-en">Discover</div></div>
+          <div class="mini-arrow">→</div>
+          <div class="mini-node"><div>✅核对</div><div class="mini-node-en">Check</div></div>
+          <div class="mini-arrow">→</div>
+          <div class="mini-node"><div>📊图表</div><div class="mini-node-en">Charts</div></div>
+          <div class="mini-arrow">→</div>
+          <div class="mini-node"><div>🚀交付</div><div class="mini-node-en">Launch</div></div>
+        </div>
+      </div>
+      <div class="style-info">
+        <div class="style-name">🎨 卡通风</div>
+        <div class="style-name-en">Cartoon Style</div>
+        <div class="style-desc">米黄背景 + 珊瑚红主色 + 青绿/黄辅色，大圆角 + 柔和阴影 + 气泡星星装饰 + 弹跳效果。教育、儿童、轻松场景首选。</div>
+        <div class="style-desc-en">Cream background with coral red and candy colors. Rounded corners, bubbles and bounce animations. Great for education and fun projects.</div>
+        <div class="style-tags">
+          <span class="tag">表情柱状图</span><span class="tag-en">Emoji Bars</span>
+          <span class="tag">糖果饼图</span><span class="tag-en">Candy Pie</span>
+          <span class="tag">蛛网雷达图</span><span class="tag-en">Spider Radar</span>
+          <span class="tag">气泡动画</span><span class="tag-en">Bubbles</span>
+          <span class="tag">弹跳效果</span><span class="tag-en">Bounce</span>
+        </div>
+        <a href="黑客松路演魔术师_卡通风_5min_完整版.html" target="_blank" class="open-btn" onclick="event.stopPropagation()">打开完整路演 Open ✨</a>
+      </div>
+    </div>
+
+    <!-- 赛博朋克风 -->
+    <div class="style-card card-cyberpunk" onclick="window.open('黑客松路演魔术师_赛博朋克风_5min_完整版.html','_blank')">
+      <div class="style-preview cyb-t">
+        <div class="mini-title">⚡ 赛博朋克风</div>
+        <div class="mini-title-en">CYBERPUNK</div>
+        <div class="mini-desc">游戏项目 · 创意工具 · 年轻受众</div>
+        <div class="mini-desc" style="font-size:0.7rem;opacity:0.6;margin-top:2px">Games · Creative Tools · Gen Z</div>
+        <div class="mini-stats">
+          <div class="mini-stat">
+            <div class="mini-num">7</div>
+            <div class="mini-label">步工作流</div>
+            <div class="mini-label-en">STEPS</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-num">19</div>
+            <div class="mini-label">种产物</div>
+            <div class="mini-label-en">OUTPUTS</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-num">⚡</div>
+            <div class="mini-label">霓虹故障</div>
+            <div class="mini-label-en">NEON</div>
+          </div>
+        </div>
+        <div class="mini-flow">
+          <div class="mini-node"><div>🔍分析</div><div class="mini-node-en">SCAN</div></div>
+          <div class="mini-arrow">→</div>
+          <div class="mini-node"><div>✅核对</div><div class="mini-node-en">VERIFY</div></div>
+          <div class="mini-arrow">→</div>
+          <div class="mini-node"><div>📊图表</div><div class="mini-node-en">CHARTS</div></div>
+          <div class="mini-arrow">→</div>
+          <div class="mini-node"><div>🚀交付</div><div class="mini-node-en">SHIP</div></div>
+        </div>
+      </div>
+      <div class="style-info">
+        <div class="style-name">⚡ 赛博朋克风</div>
+        <div class="style-name-en">Cyberpunk Style</div>
+        <div class="style-desc">纯黑背景 + 品红主色 + 青色辅色，霓虹发光效果 + 故障艺术动画 + 高对比冲击。游戏、创意工具、年轻受众首选。</div>
+        <div class="style-desc-en">Pure black with magenta neon glow and cyan accents. Glitch effects and high-contrast futuristic vibe. Perfect for games and creative tools.</div>
+        <div class="style-tags">
+          <span class="tag">霓虹发光</span><span class="tag-en">Neon Glow</span>
+          <span class="tag">故障动画</span><span class="tag-en">Glitch FX</span>
+          <span class="tag">高对比</span><span class="tag-en">High Contrast</span>
+          <span class="tag">未来感</span><span class="tag-en">Futuristic</span>
+          <span class="tag">经典版</span><span class="tag-en">Classic</span>
+        </div>
+        <a href="黑客松路演魔术师_赛博朋克风_5min_完整版.html" target="_blank" class="open-btn" onclick="event.stopPropagation()">打开完整路演 EXECUTE →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>MIT协议 · 开源地址：<a href="https://gitee.com/firecangshu/hackathon-roadshow-magician" target="_blank">gitee.com/firecangshu/hackathon-roadshow-magician</a></p>
+  </div>
+  <div class="footer-en">
+    MIT License · Open Source · 4 Built-in Styles + 1 Custom · 7 Chart Styles · 17 Professional Chart Types · Star · Issue · PR Welcome
+  </div>
+</body>
+</html>

@@ -1,0 +1,179 @@
+{
+  "project": {
+    "name": "黑客松路演魔术师",
+    "name_en": "Hackathon Roadshow Magician",
+    "version": "1.4.0",
+    "author": "喜气杨杨",
+    "license": "MIT",
+    "repository": "gitee.com/firecangshu/hackathon-roadshow-magician"
+  },
+  "roadshow": {
+    "type": "竞赛Demo",
+    "duration": "5分钟",
+    "style": "赛博朋克风",
+    "word_count": 1000,
+    "speech_speed": "200字/分钟"
+  },
+  "core_features": {
+    "workflow_steps": 7,
+    "confirmation_points": 5,
+    "roadshow_types": 8,
+    "deliverables": 19,
+    "version_dimensions": 6,
+    "visual_styles": "4+1"
+  },
+  "architecture": {
+    "layers": [
+      {
+        "name": "场景层",
+        "description": "8类路演全覆盖"
+      },
+      {
+        "name": "SOP层",
+        "description": "7步工作流·5个确认点"
+      },
+      {
+        "name": "工具层",
+        "description": "三级工具链"
+      },
+      {
+        "name": "产物层",
+        "description": "5环节·19种产物"
+      }
+    ]
+  },
+  "deliverables_generated": [
+    {
+      "name": "HTML路演页",
+      "file": "黑客松路演魔术师_赛博朋克风_5min_完整版.html",
+      "pages": 10,
+      "format": "HTML"
+    },
+    {
+      "name": "演讲腹稿",
+      "file": "黑客松路演魔术师_演讲稿_5min.md",
+      "word_count": 1000,
+      "format": "Markdown"
+    },
+    {
+      "name": "预测问答",
+      "file": "黑客松路演魔术师_问答_5min.md",
+      "questions": 8,
+      "format": "Markdown"
+    },
+    {
+      "name": "项目海报",
+      "file": "黑客松路演魔术师_海报.html",
+      "format": "HTML"
+    },
+    {
+      "name": "项目档案",
+      "file": "黑客松路演魔术师_项目档案.json",
+      "format": "JSON"
+    }
+  ],
+  "workflow": [
+    {
+      "step": "S1",
+      "name": "源码深度分析",
+      "mode": "Ask模式",
+      "description": "自动扫描项目文件，提取结构化核心信息"
+    },
+    {
+      "step": "S2",
+      "name": "信息核对",
+      "mode": "Plan模式",
+      "checkpoint": 1,
+      "description": "与开发者匹配认知，确保理解无误"
+    },
+    {
+      "step": "S3",
+      "name": "路演定类",
+      "checkpoint": 2,
+      "description": "确定路演形式，匹配叙事框架"
+    },
+    {
+      "step": "S4",
+      "name": "大纲构建",
+      "mode": "Plan模式",
+      "checkpoint": 3,
+      "description": "按路演类型梳理信息，生成结构化大纲"
+    },
+    {
+      "step": "S5",
+      "name": "图表生成",
+      "checkpoint": 4,
+      "description": "生成流程图、架构图、数据图等可视化素材"
+    },
+    {
+      "step": "S6",
+      "name": "成果生成",
+      "checkpoint": 5,
+      "description": "按用户勾选的产物与版本，生成路演材料"
+    },
+    {
+      "step": "S7",
+      "name": "交付收尾",
+      "description": "验证完整性，交付最终材料"
+    }
+  ],
+  "toolchain": {
+    "code_search": {
+      "primary": "SearchCodebase",
+      "backup": "ast-grep (15.2K⭐)",
+      "fallback": "Grep+Glob"
+    },
+    "chart_generation": {
+      "primary": "Mermaid.js (89K⭐)",
+      "backup": "Chart.js (64K⭐)",
+      "fallback": "HTML/CSS"
+    },
+    "file_write": {
+      "primary": "Write",
+      "backup": "SearchReplace",
+      "fallback": "echo"
+    },
+    "render_test": {
+      "primary": "RunCommand",
+      "backup": "Grep验证",
+      "fallback": "人工检查"
+    }
+  },
+  "visual_styles": [
+    {
+      "id": "v01",
+      "name": "暗色科技风",
+      "background": "#1A1A2E",
+      "primary": "#00D4FF",
+      "accent": "#B388FF"
+    },
+    {
+      "id": "v02",
+      "name": "工业风",
+      "background": "#2C2C2C",
+      "primary": "#FF6B35",
+      "accent": "#7D7D7D"
+    },
+    {
+      "id": "v03",
+      "name": "卡通风",
+      "background": "#FFF8E7",
+      "primary": "#FF6B6B",
+      "accent": "#4ECDC4"
+    },
+    {
+      "id": "v04",
+      "name": "赛博朋克风",
+      "background": "#0D0D0D",
+      "primary": "#FF00FF",
+      "accent": "#00FFFF"
+    },
+    {
+      "id": "v05",
+      "name": "开放选项",
+      "description": "用户自定义描述，AI生成匹配风格"
+    }
+  ],
+  "generated_at": "2026-07-28",
+  "generator": "黑客松路演魔术师 v1.4.0"
+}
