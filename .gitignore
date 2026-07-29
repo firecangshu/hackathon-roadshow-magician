@@ -22,8 +22,9 @@ yarn-error.log*
 *.cache
 
 # ===== 核心商业机密（本地保留，不公开）=====
-# SKILL.md 核心Know-how：7步工作流SOP、工具链调度逻辑、降级路径、依赖关系
-SKILL.md
+
+# SKILL完整版（含工具链调度逻辑、降级路径、提示词模板）
+SKILL-FULL.md
 
 # 内部参考模板库（提示词模板/规范库）
 ref-charts.md
@@ -32,11 +33,11 @@ ref-roadshow-types.md
 # 内部架构细节
 架构图.html
 
-# 内部开发/生成/预览脚本（工具链实现细节）
+# 内部开发脚本
 generate_social_preview.py
 preview_pitch.py
 screenshot_check.py
 路演材料/generate_ppt.py
 
-# 社交预览源文件（png已公开）
+# 社交预览源文件
 social-preview.html
