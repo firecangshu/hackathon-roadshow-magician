@@ -38,6 +38,86 @@ Hackathon Roadshow Magician is a **conversational pitch deck generator built for
 
 ---
 
+##  亮点 | Highlights
+
+### 中文
+
+1. **不是模板套壳，是深度理解**：不套用固定模板，而是真正读取你的源代码，理解项目逻辑后再生成内容
+2. **7步交互，不跑偏**：每一步都有确认点，AI不替你做决定，方向由你掌控
+3. **19种产物一站式交付**：从赛前提报到赛后传播，全链路覆盖，不用东拼西凑
+4. **4+1视觉风格可选**：暗色科技/工业/卡通/赛博朋克/自定义，同一内容不同表达
+5. **数据铁律，不编造**：所有数字标注来源，找不到数据留占位符，绝不虚构
+6. **三级工具链，容错保障**：每个环节都有主工具→备用→降级方案，确保生成成功率
+7. **完全本地运行**：代码不离开你的机器，国内网络无障碍
+
+### English
+
+1. **Not a template wrapper — it truly understands your code**: Reads source code, grasps project logic, then generates content
+2. **7 guided steps, never goes off-track**: Every step has a checkpoint. You decide, AI executes
+3. **19 deliverables in one go**: From pre-event registration to post-event amplification — full pipeline, no patchwork
+4. **4+1 visual styles**: Dark Tech / Industrial / Cartoon / Cyberpunk / Custom — same content, different expression
+5. **Data integrity, no fabrication**: Every number cites its source. Missing data gets a placeholder, never made up
+6. **3-tier toolchain with fallback**: Primary → Backup → Fallback at every step, ensuring generation success
+7. **Fully local**: Your code never leaves your machine. Works in China without VPN
+
+---
+
+## 🎯 应用场景 | Use Cases
+
+### 中文
+
+| 场景 | 说明 |
+|------|------|
+| **黑客松竞赛** | Demo完成后快速生成路演材料，把时间还给产品打磨 |
+| **技术答辩** | 毕业答辩、职称评审、技术评审，结构化呈现技术方案 |
+| **融资路演** | 向投资人展示产品价值、商业模式和团队能力 |
+| **产品发布** | 新品上线、功能迭代时的推广展示材料 |
+| **电梯演讲** | 30秒内说清项目价值，适合社交场合快速介绍 |
+| **展位展示** | 展会、集市、开放日等互动展示场景 |
+| **技术讲课** | 内部分享、技术沙龙、培训课程的课件准备 |
+| **资源对接** | 寻找合作伙伴、产业资源、媒体曝光时的项目介绍 |
+| **开源推广** | 为开源项目制作展示材料，吸引社区参与 |
+| **创业比赛** | 各类创新创业大赛的路演材料准备 |
+
+### English
+
+| Scenario | Description |
+|----------|-------------|
+| **Hackathon Demo Day** | Generate pitch materials fast after your demo works — give time back to the product |
+| **Technical Defense** | Thesis defense, promotion review, technical evaluation — structured tech presentation |
+| **Investor Pitch** | Present product value, business model, and team capability to investors |
+| **Product Launch** | Marketing materials for new product or feature releases |
+| **Elevator Pitch** | Explain your project's value in 30 seconds — perfect for networking |
+| **Booth Showcase** | Interactive demos at exhibitions, markets, open days |
+| **Tech Workshop** | Internal sharing, tech meetups, training course materials |
+| **Partnering** | Project introductions for finding partners, industry resources, media exposure |
+| **Open Source Promotion** | Showcase materials to attract community participation |
+| **Startup Competition** | Pitch deck preparation for innovation & entrepreneurship contests |
+
+---
+
+##  适用人群 | Who Is This For
+
+### 中文
+
+- **黑客松参赛者**：Demo做完了，路演还没开始写
+- **技术创业者**：需要向投资人/评委展示技术方案
+- **高校师生**：毕业答辩、课程设计展示、创新创业比赛
+- **开源开发者**：为开源项目制作专业展示材料
+- **产品经理**：产品发布、内部汇报、跨部门沟通
+- **技术讲师**：技术分享、培训课程、工作坊准备
+
+### English
+
+- **Hackathon participants**: Demo is done, pitch hasn't started
+- **Tech founders**: Need to present tech solutions to investors/judges
+- **Students & professors**: Thesis defense, course presentations, startup competitions
+- **Open source developers**: Professional showcase materials for OSS projects
+- **Product managers**: Product launches, internal reports, cross-team communication
+- **Tech educators**: Tech sharing, training courses, workshop preparation
+
+---
+
 ## ✨ 核心特性 | Key Features
 
 | 特性 | Feature | 说明 | Description |
