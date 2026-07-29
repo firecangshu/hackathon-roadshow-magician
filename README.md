@@ -231,7 +231,7 @@ hackathon-roadshow-magician__skillhub/
 
 | 类型 | Format | 叙事框架 | Narrative Arc | 默认时长 |
 |------|--------|----------|--------------|----------|
-| 竞赛Demo | Demo Day | 问题→缘起→方案→Demo→技术→成绩→未来 | Problem → Origin → Solution → Demo → Tech → Results → Future | 15min |
+| 竞赛Demo | Demo Day | 背景→痛点→市场规模→解决方案→Demo→市场反馈→竞品对比→团队荣誉→未来 | Background → Pain → Market → Solution → Demo → Feedback → Competitors → Team → Future | 15min |
 | 投资路演 | Investor Pitch | 痛点→市场→产品→商业→团队→融资 | Pain → Market → Product → Business → Team → Ask | 10min |
 | 技术答辩 | Tech Defense | 背景→方法→实现→验证→结论 | Background → Method → Implementation → Validation → Conclusion | 20min |
 | 产品推广 | Product Launch | 场景→痛点→体验→优势→行动 | Scene → Pain → Experience → Edge → Action | 5min |
