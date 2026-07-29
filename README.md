@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🎩 黑客松路演魔术师
+#  黑客松路演魔术师
 ## Hackathon Roadshow Magician
 
 **黑客松专属路演全链助手 · The All-in-One Roadshow Assistant for Hackathons**
@@ -24,47 +24,67 @@
 
 ## 📖 项目简介 | Introduction
 
-### 中文
+### 🇳 中文
 
-黑客松路演魔术师是一个**对话式路演材料生成助手**。你丢给它一个成果项目（源代码/文档/链接），它会深度分析、核对信息、匹配路演类型、构建大纲、生成图表，最终产出**六维版本×19种产物**。整个过程7步交互，不浪费时间在排版和措辞上。
+### 黑客松路演魔术师：对话式路演材料全链路生成助手
 
-**核心痛点**：很多人不会写路演或写不好路演。DEMO做出来以后，要花很久去准备路演材料，浪费很多本该用于完善和搭建DEMO产品的时间。
+只需上传项目源码、文档或链接，系统将自动完成深度分析、信息校验、路演场景匹配、大纲构建、图表生成全流程，最终输出**6大维度版本 × 19种路演产物**。全程采用7步确认式交互，帮你把时间从排版措辞、材料拼凑中解放出来，专注打磨DEMO本身。
 
-### English
+#### 直击核心痛点
 
-Hackathon Roadshow Magician is a **conversational pitch deck generator built for hackathons**. Hand it your project — source code, docs, or links — and it dives deep, cross-checks the details, picks the right pitch format, drafts the outline, builds the visuals, and ships **6-dimension variants × 19 ready-to-use deliverables**. Seven guided steps. Zero time lost on formatting or phrasing.
+黑客松的核心竞争力是产品DEMO的完成度，但绝大多数团队都栽在路演环节：要么缺乏路演叙事能力，内容抓不住重点；要么耗费大量精力打磨路演材料，挤占了本应用于完善功能、搭建DEMO的核心时间。
 
-**Why it matters**: Most hackers can build, but struggle to pitch. After the demo works, hours vanish into slide-making — hours that should go back into the product. This tool gives that time back.
+#### 核心差异化能力
+
+1. **深度理解，绝非模板套壳**
+   不靠固定模板生搬硬套，而是真正读取项目源代码与文档，吃透技术逻辑与产品价值后，生成完全匹配项目的定制化路演内容。
+
+2. **7步交互，全程方向可控**
+   标准化7步节点式交互，每个关键环节都设置确认点，AI只执行指令、不擅自决策，路演的叙事方向与内容权重完全由你掌控，从根源避免输出跑偏。
+
+3. **全链路交付，一站式覆盖**
+   覆盖赛前提报、现场路演、赛后传播全场景，一次性输出19种路演产物，无需跨工具东拼西凑；内置4+1套视觉风格（暗色科技/工业/卡通/赛博朋克/自定义），同一套内容可快速切换不同表达风格，适配不同赛场要求。
+
+#### 三重可靠保障
+
+- **数据真实铁律**：所有数据均标注信息来源，无权威来源的内容统一保留占位符，绝不虚构任何信息
+- **三级容错工具链**：每个生成环节均配置「主工具→备用方案→降级策略」三级保障，确保高生成成功率
+- **纯本地运行**：项目代码与数据全程不离开你的设备，国内网络环境可无障碍使用，安全无顾虑
 
 ---
 
-##  亮点 | Highlights
+### 🇸 English
 
-### 中文
+### Hackathon Roadshow Magician: A Conversational All-in-One Pitch Material Generator
 
-1. **不是模板套壳，是深度理解**：不套用固定模板，而是真正读取你的源代码，理解项目逻辑后再生成内容
-2. **7步交互，不跑偏**：每一步都有确认点，AI不替你做决定，方向由你掌控
-3. **19种产物一站式交付**：从赛前提报到赛后传播，全链路覆盖，不用东拼西凑
-4. **4+1视觉风格可选**：暗色科技/工业/卡通/赛博朋克/自定义，同一内容不同表达
-5. **数据铁律，不编造**：所有数字标注来源，找不到数据留占位符，绝不虚构
-6. **三级工具链，容错保障**：每个环节都有主工具→备用→降级方案，确保生成成功率
-7. **完全本地运行**：代码不离开你的机器，国内网络无障碍
+Simply upload your project source code, documentation, or links — the system automatically handles deep analysis, information verification, pitch scenario matching, outline construction, and chart generation, ultimately delivering **6-dimensional variants × 19 pitch deliverables**. The entire process follows a 7-step confirmation workflow, freeing you from formatting, phrasing, and material patchwork so you can focus on polishing your demo.
 
-### English
+#### The Core Pain Point
 
-1. **Not a template wrapper — it truly understands your code**: Reads source code, grasps project logic, then generates content
-2. **7 guided steps, never goes off-track**: Every step has a checkpoint. You decide, AI executes
-3. **19 deliverables in one go**: From pre-event registration to post-event amplification — full pipeline, no patchwork
-4. **4+1 visual styles**: Dark Tech / Industrial / Cartoon / Cyberpunk / Custom — same content, different expression
-5. **Data integrity, no fabrication**: Every number cites its source. Missing data gets a placeholder, never made up
-6. **3-tier toolchain with fallback**: Primary → Backup → Fallback at every step, ensuring generation success
-7. **Fully local**: Your code never leaves your machine. Works in China without VPN
+A hackathon's competitive edge lies in demo completeness, yet most teams stumble at the pitch stage: either they lack narrative skills and miss the key points, or they spend so much energy on pitch materials that it eats into the time meant for building and refining the demo itself.
+
+#### Key Differentiators
+
+1. **Deep Understanding, Not Template Copy-Paste**
+   No rigid templates slapped on. It genuinely reads your source code and documentation, grasps the technical logic and product value, then generates fully customized pitch content tailored to your project.
+
+2. **7-Step Interactive Flow, Full Direction Control**
+   A standardized 7-step checkpoint workflow where every critical stage requires your confirmation. AI executes — never decides. The narrative direction and content priorities are entirely yours, eliminating off-track outputs from the root.
+
+3. **Full-Pipeline Delivery, One-Stop Coverage**
+   Covers pre-event registration, live pitching, and post-event amplification in a single pipeline — 19 deliverables at once, no cross-tool patchwork. Built-in 4+1 visual styles (Dark Tech / Industrial / Cartoon / Cyberpunk / Custom), letting you switch expressions instantly to match different competition requirements.
+
+#### Triple Reliability Guarantees
+
+- **Data Integrity Iron Rule**: Every data point cites its source. Content without authoritative backing gets a placeholder — nothing is ever fabricated.
+- **3-Tier Fault-Tolerant Toolchain**: Every generation step is backed by a "Primary → Backup → Fallback" chain, ensuring high success rates.
+- **Pure Local Execution**: Your code and data never leave your device. Works seamlessly in China's network environment — no VPN needed, no security concerns.
 
 ---
 
 ## 🎯 应用场景 | Use Cases
 
-### 中文
+### 🇨🇳 中文
 
 | 场景 | 说明 |
 |------|------|
@@ -79,7 +99,7 @@ Hackathon Roadshow Magician is a **conversational pitch deck generator built for
 | **开源推广** | 为开源项目制作展示材料，吸引社区参与 |
 | **创业比赛** | 各类创新创业大赛的路演材料准备 |
 
-### English
+### 🇸 English
 
 | Scenario | Description |
 |----------|-------------|
@@ -98,7 +118,7 @@ Hackathon Roadshow Magician is a **conversational pitch deck generator built for
 
 ##  适用人群 | Who Is This For
 
-### 中文
+### 🇳 中文
 
 - **黑客松参赛者**：Demo做完了，路演还没开始写
 - **技术创业者**：需要向投资人/评委展示技术方案
@@ -107,7 +127,7 @@ Hackathon Roadshow Magician is a **conversational pitch deck generator built for
 - **产品经理**：产品发布、内部汇报、跨部门沟通
 - **技术讲师**：技术分享、培训课程、工作坊准备
 
-### English
+### 🇺🇸 English
 
 - **Hackathon participants**: Demo is done, pitch hasn't started
 - **Tech founders**: Need to present tech solutions to investors/judges
@@ -126,10 +146,10 @@ Hackathon Roadshow Magician is a **conversational pitch deck generator built for
 | 🎪 **8类路演类型** | 8 Pitch Formats | 竞赛/投资/答辩/推广/电梯/展位/讲课/对接 | Demo Day / Investor / Defense / Launch / Elevator / Booth / Workshop / Partnering |
 | 🎨 **4+1视觉风格** | 4+1 Visual Styles | 暗色科技/工业/卡通/赛博朋克/自定义 | Dark Tech / Industrial / Cartoon / Cyberpunk / Custom |
 | 📊 **17种专业图表** | 17 Chart Types | 流程图/架构图/UML/ER/关系图/3D/手绘等 | Flowcharts / Architecture / UML / ER / Graphs / 3D / Hand-drawn |
-| 🌍 **中英双语** | Bilingual Ready | 中文为主、英文点缀，风格差异化排版 | CN-primary, EN-accent, style-matched typography |
+|  **中英双语** | Bilingual Ready | 中文为主、英文点缀，风格差异化排版 | CN-primary, EN-accent, style-matched typography |
 | 🎭 **六维版本矩阵** | 6D Variant Matrix | 时长×侧重×风格×格式×语言×团队 | Length × Focus × Tone × Format × Language × Team |
 | 📦 **19种产物** | 19 Deliverables | 赛前提报4+现场展示5+评委互动4+赛后传播4+存档复用2 | Pre-event 4 + Onstage 5 + Q&A 4 + Amplify 4 + Archive 2 |
-| 🛡️ **三级工具链** | 3-Tier Toolchain | 主工具→备用(开源高赞)→降级方案 | Primary → Backup (open-source) → Fallback |
+| ️ **三级工具链** | 3-Tier Toolchain | 主工具→备用(开源高赞)→降级方案 | Primary → Backup (open-source) → Fallback |
 | 🔒 **完全本地运行** | Fully Local | 绝不联网、绝不外传 | Runs entirely on your machine — nothing leaves your device |
 
 ---
@@ -146,14 +166,14 @@ Hackathon Roadshow Magician is a **conversational pitch deck generator built for
 
 ## 🚀 快速开始 | Quick Start
 
-### 中文
+### 🇨🇳 中文
 
 1. **触发**：对AI助手说"黑客松路演"或"帮我做路演材料"
 2. **丢入项目**：提供你的成果项目路径（源代码/文档/链接）
 3. **7步交互**：按SOP流程确认信息、选择类型、审核大纲、选择风格
 4. **获取产物**：多风格HTML路演页 + 演讲稿 + 问答 + 图表 + 推广样品截图
 
-### English
+### 🇺🇸 English
 
 1. **Kick it off**: Say "hackathon roadshow" or "help me build a pitch"
 2. **Drop in your project**: Point it at your source code, docs, or links
@@ -162,19 +182,19 @@ Hackathon Roadshow Magician is a **conversational pitch deck generator built for
 
 ---
 
-## 📐 架构图 | Architecture
+## 📐 架构 | Architecture
 
 ```
 ┌─────────────────────────────────────────────────────┐
 │  Layer 1 · 场景层 (Scenarios)                        │
 │  8类路演全覆盖 (8 Pitch Formats)                     │
-├─────────────────────────────────────────────────────┤
+├─────────────────────────────────────────────────────
 │  Layer 2 · SOP层 (Workflow)                          │
 │  7步工作流 · 5个确认点 (7 Steps · 5 Checkpoints)     │
 ├─────────────────────────────────────────────────────┤
 │  Layer 3 · 工具层 (Tools)                            │
 │  三级工具链 · 17种图表 · 7种布局 · 专家降级           │
-├─────────────────────────────────────────────────────┤
+├─────────────────────────────────────────────────────
 │  Layer 4 · 视觉层 (Visuals)                          │
 │  4+1风格 · 中英双语 · 7种渲染风格                    │
 ├─────────────────────────────────────────────────────┤
@@ -185,11 +205,11 @@ Hackathon Roadshow Magician is a **conversational pitch deck generator built for
 
 ---
 
-## 📂 项目结构 | Project Structure
+##  项目结构 | Project Structure
 
 ```
 hackathon-roadshow-magician__skillhub/
-├── SKILL.md                 # 主文件 (Skill Definition, v1.5.0)
+── SKILL.md                 # 主文件 (Skill Definition, v1.5.0)
 ├── ref-roadshow-types.md    # 8类路演模板库 (Pitch Format Library)
 ├── ref-charts.md            # 17种图表模板与风格规范
 ├── 架构图.html              # 交互式架构图 (Interactive Architecture)
@@ -234,7 +254,7 @@ hackathon-roadshow-magician__skillhub/
 
 ---
 
-## 🛡️ 三级工具链 | 3-Tier Toolchain
+## ️ 三级工具链 | 3-Tier Toolchain
 
 | 环节 | 主工具 | 备用(开源高赞) | 降级方案 |
 |------|--------|---------------|----------|
@@ -280,11 +300,12 @@ Golden Idea (Idea Evaluator)  →  Roadshow Magician (Pitch Builder)  →  Qinsh
 - [🟧 工业风 · 5min完整版](路演材料/黑客松路演魔术师_工业风_5min_完整版.html) — 硬朗金属质感
 - [🎈 卡通风 · 5min完整版](路演材料/黑客松路演魔术师_卡通风_5min_完整版.html) — 活泼可爱
 - [💜 赛博朋克风 · 5min完整版](路演材料/黑客松路演魔术师_赛博朋克风_5min_完整版.html) — 霓虹故障艺术
-- [📊 风格合集对比预览](路演材料/风格合集_对比预览.html) — 四套风格同屏对比
+- [ 风格合集对比预览](路演材料/风格合集_对比预览.html) — 四套风格同屏对比
 - [📝 5分钟演讲稿](路演材料/黑客松路演魔术师_演讲稿_5min.md) — 口语化腹稿
-- [❓ 预测问答5min版](路演材料/黑客松路演魔术师_问答_5min.md) — 评委互动准备
+- [ 预测问答5min版](路演材料/黑客松路演魔术师_问答_5min.md) — 评委互动准备
 
 > **同一个项目，同一套代码，不同的表达。** 这不是魔法，是工程化。
+> *Same project, same code, different expression. Not magic — engineering.*
 
 ---
 
